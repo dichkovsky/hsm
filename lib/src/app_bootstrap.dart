@@ -6,7 +6,7 @@ import 'package:hsm/src/system/exceptions/error_logger.dart';
 import 'package:hsm/src/system/localization/string_hardcoded.dart';
 
 /// Helper class to initialize services and configure the error handlers
-class AppBootstrap {
+abstract class AppBootstrap {
   /// Create the root widget that should be passed to [runApp].
   UncontrolledProviderScope createRootWidget({required ProviderContainer container}) {
     // * Initialize CartSyncService to start the listener
@@ -48,5 +48,9 @@ class AppBootstrap {
         body: Center(child: Text(details.toString())),
       );
     };
+  }
+
+  Future<ProviderContainer> initContainer({bool addDelay = true}) async {
+    throw UnimplementedError("Need to implement initContainer method in subcalss");
   }
 }
