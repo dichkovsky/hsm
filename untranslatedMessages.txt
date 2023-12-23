@@ -1,0 +1,35 @@
+{
+  "de": [
+    "cards",
+    "meditations",
+    "manifestations",
+    "general",
+    "visualization",
+    "health",
+    "relationship",
+    "workFinance",
+    "cardsGallery",
+    "cardsGalleryDesc",
+    "cardsSwiper",
+    "cardsSwiperDesc"
+  ],
+
+  "es": [
+    "cards",
+    "meditations",
+    "manifestations",
+    "general",
+    "visualization",
+    "health",
+    "relationship",
+    "workFinance",
+    "cardsGallery",
+    "cardsGalleryDesc",
+    "cardsSwiper",
+    "cardsSwiperDesc"
+  ],
+
+  "ru": [
+    "general"
+  ]
+}

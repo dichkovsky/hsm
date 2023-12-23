@@ -1,0 +1,21 @@
+{
+  "@@locale": "ru",
+  "appTitle": "HSM Оракул",
+  "cards": "Карты",
+  "meditations": "Медитации",
+  "manifestations": "Манифестации",
+  "visualization": "Визаулизация",
+  "health": "Здоровье",
+  "relationship": "Взаимоотношения",
+  "workFinance": "Работа и Финансы",
+  "cardsGallery": "Галерея карта",
+  "cardsGalleryDesc": "Изучите карты в нашей созданной вручную колоде карт",
+  "cardsSwiper": "Листайте карты",
+  "cardsSwiperDesc" : "Исследуйте карты, листая их одну за другой",
+  "randomCard": "Случайная карта",
+  "randomCardDesc": "Получите чтение для случайной карты из колоды",
+  "accountSettings": "Настройки аккаунта",
+  "appTheme": "Тема оформления",
+  "appThemeType": "{themeType, select, light{Светлая} dark{Темная} other{Авто}}",
+  "appLang": "Язык приложения"
+}

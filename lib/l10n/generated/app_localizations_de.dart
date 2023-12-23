@@ -1,0 +1,75 @@
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations.dart';
+
+/// The translations for German (`de`).
+class AppLocalizationsDe extends AppLocalizations {
+  AppLocalizationsDe([String locale = 'de']) : super(locale);
+
+  @override
+  String get appTitle => '[DE] HSM Oracle';
+
+  @override
+  String get cards => 'Cards';
+
+  @override
+  String get meditations => 'Meditations';
+
+  @override
+  String get manifestations => 'Manifestations';
+
+  @override
+  String get randomCard => '[DE] Random Card';
+
+  @override
+  String get randomCardDesc => '[DE] Get random card reading';
+
+  @override
+  String get general => 'General meaning';
+
+  @override
+  String get visualization => 'Visualization';
+
+  @override
+  String get health => 'Health';
+
+  @override
+  String get relationship => 'Relationship';
+
+  @override
+  String get workFinance => 'Work and Finance';
+
+  @override
+  String get cardsGallery => 'Cards Gallery';
+
+  @override
+  String get cardsGalleryDesc => 'Explore all the cards in our hand-crafted cards deck';
+
+  @override
+  String get cardsSwiper => 'Cards Swiper';
+
+  @override
+  String get cardsSwiperDesc => 'Explore the cards by swiping them one by one';
+
+  @override
+  String get accountSettings => '[DE] Account settings';
+
+  @override
+  String get appTheme => '[DE] Application theme';
+
+  @override
+  String appThemeType(String themeType) {
+    String _temp0 = intl.Intl.selectLogic(
+      themeType,
+      {
+        'light': '[DE] Light',
+        'dark': '[DE] Dark',
+        'other': '[DE] System',
+      },
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get appLang => '[DE] Application Language';
+}

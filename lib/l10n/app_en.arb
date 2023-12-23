@@ -1,0 +1,41 @@
+{
+    "@@locale": "en",
+    "appTitle": "HSM Oracle",
+    
+    "@_HOME_SCREEN": {},
+    "cards": "Cards",
+    "meditations": "Meditations",
+    "manifestations": "Manifestations",
+
+    "@_CARD_VIEW_SCREEN": {},
+    "randomCard": "Random Card",
+    "randomCardDesc": "Get random card reading",
+    "general": "General meaning",
+    "visualization": "Visualization",
+    "health": "Health",
+    "relationship": "Relationship",
+    "workFinance": "Work and Finance",
+
+    "@_CARDS_GALLERY_SCREEN": {},
+    "cardsGallery": "Cards Gallery",
+    "cardsGalleryDesc": "Explore all the cards in our hand-crafted cards deck",
+
+    "@_CARDS_SWIPER_SCREEN": {},
+    "cardsSwiper": "Cards Swiper",
+    "cardsSwiperDesc": "Explore the cards by swiping them one by one",
+
+    "@_ACCOUNT_SETTINGS": {},
+    "accountSettings": "Account settings",
+    "appTheme": "Application theme",
+    "appThemeType": "{themeType, select, light{Light} dark{Dark} other{System}}",
+    "@appThemeType": {
+        "placeholders": {
+            "themeType": {
+                "type": "String"
+            }
+        }
+    },
+    "appLang": "Application Language",
+
+    "@_END": {}
+}

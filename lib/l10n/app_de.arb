@@ -1,0 +1,10 @@
+{
+  "@@locale": "de",
+  "appTitle": "[DE] HSM Oracle",
+  "randomCard": "[DE] Random Card",
+  "randomCardDesc": "[DE] Get random card reading",
+  "accountSettings": "[DE] Account settings",
+  "appTheme": "[DE] Application theme",
+  "appThemeType": "{themeType, select, light{[DE] Light} dark{[DE] Dark} other{[DE] System}}",
+  "appLang": "[DE] Application Language"
+}
