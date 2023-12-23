@@ -40,7 +40,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get workFinance => 'Работа и Финансы';
 
   @override
-  String get cardsGallery => 'Галерея карта';
+  String get cardsGallery => 'Галерея карт';
 
   @override
   String get cardsGalleryDesc => 'Изучите карты в нашей созданной вручную колоде карт';
