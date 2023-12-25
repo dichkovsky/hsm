@@ -1,4 +1,4 @@
-package com.example.hsm
+package media.andcut.hsm
 
 import io.flutter.embedding.android.FlutterActivity
 
