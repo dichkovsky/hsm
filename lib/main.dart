@@ -16,7 +16,7 @@ void main() async {
   // more info here: https://docs.google.com/document/d/1VCuB85D5kYxPR3qYOjVmw8boAGKb7k62heFyfFHTOvw/edit
   GoRouter.optionURLReflectsImperativeAPIs = true;
   
-  final appBootstrap = getBootstrap(BootstrapType.fake);
+  final appBootstrap = getBootstrap(BootstrapType.appwrite);
 
   // create a container configured with all the AppWrite repositories
   final container = await appBootstrap.initContainer();
