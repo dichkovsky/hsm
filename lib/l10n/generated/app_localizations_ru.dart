@@ -25,7 +25,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get randomCardDesc => 'Получите чтение для случайной карты из колоды';
 
   @override
-  String get general => 'General meaning';
+  String get general => 'Общее значение';
 
   @override
   String get visualization => 'Визаулизация';
