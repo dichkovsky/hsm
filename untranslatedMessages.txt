@@ -27,9 +27,5 @@
     "cardsGalleryDesc",
     "cardsSwiper",
     "cardsSwiperDesc"
-  ],
-
-  "ru": [
-    "general"
   ]
 }
