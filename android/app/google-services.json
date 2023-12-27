@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "195982830409",
+    "firebase_url": "https://hsm-app-1b7e3-default-rtdb.firebaseio.com",
+    "project_id": "hsm-app-1b7e3",
+    "storage_bucket": "hsm-app-1b7e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195982830409:android:f5eb4dd48a9bfc6ec20898",
+        "android_client_info": {
+          "package_name": "media.andcut.hsm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195982830409-vnj79fb42t15n8l8hbvijpcitc0sbu2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMuFjULQ3QcFeRejstAlpMP3od-MMYQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195982830409-vnj79fb42t15n8l8hbvijpcitc0sbu2v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195982830409-8qjn0joebdr69u0qvtbc02t3731ikg07.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "media.andcut.hsm"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
