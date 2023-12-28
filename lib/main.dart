@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hsm/src/app_bootstrap.dart';
 import 'package:hsm/src/app_bootstrap_appwrite.dart';
 import 'package:hsm/src/app_bootstrap_fakes.dart';
+import 'package:hsm/src/app_bootstrap_firebase.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,7 @@ void main() async {
   // more info here: https://docs.google.com/document/d/1VCuB85D5kYxPR3qYOjVmw8boAGKb7k62heFyfFHTOvw/edit
   GoRouter.optionURLReflectsImperativeAPIs = true;
   
-  final appBootstrap = getBootstrap(BootstrapType.appwrite);
+  final appBootstrap = getBootstrap(BootstrapType.fake);
 
   // create a container configured with all the AppWrite repositories
   final container = await appBootstrap.initContainer();
@@ -32,6 +33,7 @@ void main() async {
 
 enum BootstrapType {
   appwrite,
+  firebase,
   fake
 }
 
@@ -39,6 +41,8 @@ AppBootstrap getBootstrap(BootstrapType type) {
   switch (type) {
     case BootstrapType.appwrite:
       return AppBootstrapAppwrite();
+    case BootstrapType.firebase:
+      return AppBootstrapFirebase();
     default:
       return AppBootstrapFakes();
   }
