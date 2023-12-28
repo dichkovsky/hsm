@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:hsm/src/common_widgets/error_message_widget.dart';
 import 'package:hsm/src/constants/app_sizes.dart';
+import 'package:hsm/src/features/cards/application/cards_service.dart';
 import 'package:hsm/src/features/cards/domain/hsm_card.dart';
 import 'package:hsm/src/features/cards/presentation/widgets/card_face.dart';
-import 'package:hsm/src/features/cards/data/cards_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

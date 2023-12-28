@@ -1,5 +1,5 @@
 import 'package:hsm/src/common_widgets/error_message_widget.dart';
-import 'package:hsm/src/features/cards/data/cards_repository.dart';
+import 'package:hsm/src/features/cards/application/cards_service.dart';
 import 'package:hsm/src/features/cards/presentation/cards_swiper/cards_swiper_screen_controller.dart';
 import 'package:hsm/src/features/cards/presentation/widgets/card_face.dart';
 import 'package:flutter/material.dart';
