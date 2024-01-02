@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:hsm/src/common_widgets/error_message_widget.dart';
 import 'package:hsm/src/constants/app_sizes.dart';
 import 'package:hsm/src/features/cards/application/cards_service.dart';
@@ -37,7 +38,7 @@ class CardViewScreen extends ConsumerWidget {
       Random().nextInt(cards.length-1) : 
       cards.indexWhere((element) => element.id == cardId);
 
-    final card = cards[index];
+    final HSMCard card = cards[index];
 
     final title = isRandomCard ?
       "${context.loc.randomCard} - ${card.title}" :
@@ -96,7 +97,7 @@ class CardViewScreen extends ConsumerWidget {
             ),
           );
         },
-      ).animate(onPlay: playSound)
+      ).animate(onPlay: (_) => playSound(card) )
     );
   }
 
@@ -136,9 +137,10 @@ class CardViewScreen extends ConsumerWidget {
     );
   }
 
-  void playSound(_) {
-    // final player = AudioPlayer();
-    // const sampleSound = "sound/thunder.mp3";
-    // player.play(AssetSource(sampleSound));
+  void playSound(HSMCard card) {
+    if (card.soundURL.isNotEmpty) {
+      final player = AudioPlayer();
+      player.play(UrlSource(card.soundURL));
+    }
   }
 }
