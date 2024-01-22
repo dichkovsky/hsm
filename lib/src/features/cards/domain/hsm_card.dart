@@ -6,6 +6,7 @@ class HSMCard extends Equatable {
   final HSMCardID id;
   final int cardNo;
   final String faceURL;
+  final String soundURL;
   final String title;
   final String description;
   final String visualization;
@@ -18,6 +19,7 @@ class HSMCard extends Equatable {
     required this.id,
     required this.cardNo,
     required this.faceURL,
+    required this.soundURL,
     required this.title,
     required this.description,
     required this.visualization,
@@ -38,6 +40,7 @@ class HSMCard extends Equatable {
       id: map['id'] as String,
       cardNo: map['cardNo']?.toInt() ?? 0,
       faceURL: map['faceURL'] as String,
+      soundURL: map['soundURL'] as String,
       title: map['title'] ?? '',
       description: map['description'] ?? '',
       visualization: map['visualization'] ?? '',
@@ -52,6 +55,7 @@ class HSMCard extends Equatable {
         'id': id,
         'cardNo': cardNo,
         'faceURL': faceURL,
+        'soundURL': soundURL,
         'title': title,
         'description': description,
         'visualization': visualization,
@@ -65,6 +69,7 @@ class HSMCard extends Equatable {
     HSMCardID? id,
     int? cardNo,
     String? faceURL,
+    String? soundURL,
     String? title,
     String? description,
     String? visualization,
@@ -77,6 +82,7 @@ class HSMCard extends Equatable {
       id: id ?? this.id,
       cardNo: cardNo ?? this.cardNo,
       faceURL: faceURL ?? this.faceURL,
+      soundURL: soundURL ?? this.soundURL,
       title: title ?? this.title,
       description: description ?? this.description,
       visualization: visualization ?? this.visualization,

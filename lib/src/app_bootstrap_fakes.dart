@@ -8,6 +8,7 @@ import 'package:hsm/src/system/exceptions/async_error_logger.dart';
 class AppBootstrapFakes extends AppBootstrap {
   @override
   Future<ProviderContainer> initContainer({bool addDelay = true}) async {
+
     final cardsRepositoryFake = CardsRepositoryFake(addDelay: addDelay);
 
     return ProviderContainer(
