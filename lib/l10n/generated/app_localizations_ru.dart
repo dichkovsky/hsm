@@ -28,7 +28,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get general => 'Общее значение';
 
   @override
-  String get visualization => 'Визаулизация';
+  String get visualization => 'Визуализация';
 
   @override
   String get health => 'Здоровье';
