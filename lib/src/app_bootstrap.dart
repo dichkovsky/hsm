@@ -1,7 +1,10 @@
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:hsm/src/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart';
+import 'package:hsm/src/features/cards/domain/hsm_card.dart';
 import 'package:hsm/src/system/exceptions/error_logger.dart';
 import 'package:hsm/src/system/localization/string_hardcoded.dart';
 
@@ -19,6 +22,8 @@ abstract class AppBootstrap {
     // * https://docs.flutter.dev/testing/errors
     final errorLogger = container.read(errorLoggerProvider);
     registerErrorHandlers(errorLogger);
+
+    registerLocalStorrage();
 
     return UncontrolledProviderScope(
       container: container,
@@ -48,6 +53,11 @@ abstract class AppBootstrap {
         body: Center(child: Text(details.toString())),
       );
     };
+  }
+
+  void registerLocalStorrage() async {
+    await Hive.initFlutter();
+    Hive.registerAdapter(HSMCardAdapter());
   }
 
   Future<ProviderContainer> initContainer({bool addDelay = true}) async {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hsm/src/features/cards/data/cards_repository_local.dart';
 import 'package:hsm/src/system/exceptions/app_exception.dart';
 import 'package:hsm/src/system/preferences/preferences_repository.dart';
 import 'package:intl/intl.dart';
@@ -34,6 +35,8 @@ class AppLocale extends _$AppLocale {
     final isUpdated = await preferencesRepository.setString(localeKey, value);
     if (isUpdated) {
       state = Locale.fromSubtags(languageCode:value);
+      final lsp = ref.read(cardsRepositoryLocalProvider);
+      await lsp.clearStorrage();
     } else {
       throw LocalStorrageSaveException();
     }

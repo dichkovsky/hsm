@@ -6,7 +6,6 @@ import 'package:hsm/src/system/exceptions/async_error_logger.dart';
 class AppBootstrapAppwrite extends AppBootstrap {
   @override
   Future<ProviderContainer> initContainer({bool addDelay = true}) async {
-
     return ProviderContainer(
       overrides: [
         // repositories

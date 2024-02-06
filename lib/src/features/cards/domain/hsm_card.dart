@@ -1,18 +1,33 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
+
+part 'hsm_card.g.dart';
 
 typedef HSMCardID = String;
 
+@HiveType(typeId: 1)
 class HSMCard extends Equatable {
+  @HiveField(1)
   final HSMCardID id;
+  @HiveField(2)
   final int cardNo;
+  @HiveField(3)
   final String faceURL;
+  @HiveField(4)
   final String soundURL;
+  @HiveField(5)
   final String title;
+  @HiveField(6)
   final String description;
+  @HiveField(7)
   final String visualization;
+  @HiveField(8)
   final String general;
+  @HiveField(9)
   final String relationship;
+  @HiveField(10)
   final String workFinance;
+  @HiveField(11)
   final String health;
 
   const HSMCard({

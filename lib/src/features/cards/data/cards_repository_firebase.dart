@@ -1,12 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hsm/src/features/cards/data/cards_repository_base.dart';
+import 'package:hsm/src/features/cards/data/cards_repository_local.dart';
 import 'package:hsm/src/features/cards/domain/hsm_card.dart';
 import 'package:hsm/src/system/localization/app_locale_provider.dart';
-import 'package:hsm/src/utils/in_memory_store.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import 'package:hsm/src/features/cards/data/test_cards.dart';
 
 
 part 'cards_repository_firebase.g.dart';
@@ -26,12 +24,21 @@ class CardsRepositoryFirebase implements CardsRepositoryBase {
       ).orderBy('cardNo');
   }
   
+  @override
   Future<List<HSMCard>> fetchCardsList() async {
-    final query = _cardsQuery();
-    final snapshot = await query.get();
-    return snapshot.docs.map((docSnapshot) => docSnapshot.data()).toList();
+    final cardsLocalRepo = ref.read(cardsRepositoryLocalProvider);
+    if (await cardsLocalRepo.hasLocalCards()) {
+      return cardsLocalRepo.fetchCardsList();
+    } else {
+      final query = _cardsQuery();
+      final snapshot = await query.get();
+      final cards = snapshot.docs.map((docSnapshot) => docSnapshot.data()).toList();
+      cardsLocalRepo.writeLocalCards(cards);
+      return cards;
+    }
   }
 
+  @override
   Future<HSMCard?> fetchCard(HSMCardID id) async {
     // TODO: implement fetchCard
     throw UnimplementedError();
