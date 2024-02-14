@@ -15,8 +15,6 @@ class CardsRepositoryLocal implements CardsRepositoryBase {
 
   final Ref ref;
 
-  final Future<Box<dynamic>> _cardsBox = Hive.openBox(cardsBoxKey);
-
   CardsRepositoryLocal(this.ref);
 
   Future<void> clearStorrage() {
@@ -24,7 +22,7 @@ class CardsRepositoryLocal implements CardsRepositoryBase {
   }
 
   Future<HSMCard?> fetchRandomCard() async {
-    final cardsBox = await _cardsBox;
+    final cardsBox = await Hive.openBox(cardsBoxKey);
     var cards = cardsBox.values;
     final index = Random().nextInt(cards.length-1);
     return Future.value(cardsBox.getAt(index));
@@ -32,14 +30,14 @@ class CardsRepositoryLocal implements CardsRepositoryBase {
 
   @override
   Future<HSMCard?> fetchCard(HSMCardID id) async {
-    final cardsBox = await _cardsBox;
+    final cardsBox = await Hive.openBox(cardsBoxKey);
     HSMCard card = cardsBox.get(id);
     return Future.value(card);
   }
 
   @override
   Future<List<HSMCard>> fetchCardsList() async {
-    final cardsBox = await _cardsBox;
+    final cardsBox = await Hive.openBox(cardsBoxKey);
     List<HSMCard> l = List.empty(growable: true);
     for (var card in cardsBox.values) {
       if (card is HSMCard) {
@@ -55,7 +53,7 @@ class CardsRepositoryLocal implements CardsRepositoryBase {
   }
 
   writeLocalCards(List<HSMCard> cards) async {
-    final cardsBox = await _cardsBox;
+    final cardsBox = await Hive.openBox(cardsBoxKey);
     for (var card in cards) {
       await cardsBox.put(card.id, card);
     }

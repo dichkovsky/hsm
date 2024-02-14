@@ -26,6 +26,7 @@ class CardsRepositoryAppwrite implements CardsRepositoryBase {
 
   const CardsRepositoryAppwrite(this.ref);
   
+  @override
   Future<List<HSMCard>> fetchCardsList() async {
     final lang = ref.read(appLocaleProvider).languageCode;
     final db = ref.read(appwriteDatabasesProvider);

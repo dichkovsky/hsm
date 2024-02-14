@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:hsm/src/features/cards/data/cards_repository_appwrite.dart';
 import 'package:hsm/src/features/cards/data/cards_repository_firebase.dart';
 import 'package:hsm/src/features/cards/data/test_cards.dart';
@@ -24,6 +26,12 @@ class CardsRepositoryFake implements CardsRepositoryFirebase, CardsRepositoryApp
     return Future.value(_getCard(_cards.value, id));
   }
 
+  @override
+  Future<HSMCard?> fetchRandomCard() {
+    final rand = Random().nextInt(55) + 1;
+    return fetchCard('card$rand');
+  }
+
   static HSMCard? _getCard(List<HSMCard> cards, String id) {
     // * This can also be implemented with [firstWhereOrNull] from this package:
     // * https://api.flutter.dev/flutter/package-collection_collection/IterableExtension/firstWhereOrNull.html
@@ -38,9 +46,9 @@ class CardsRepositoryFake implements CardsRepositoryFirebase, CardsRepositoryApp
   // TODO: implement ref
   Ref<Object?> get ref => throw UnimplementedError();
   
-  addCards() {
-    // TODO: implement addCards
-    throw UnimplementedError();
-  }
+  // addCards() {
+  //   // TODO: implement addCards
+  //   throw UnimplementedError();
+  // }
 
 }
