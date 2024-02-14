@@ -26,13 +26,6 @@ class HomePageNav {
         label: context.loc.meditations,
         tooltip : context.loc.meditations,
         initialLocation: AppRoutes.meditations.name,
-      ),
-      MyCustomNavBarItem(
-        selectedIcon: const Icon(Icons.auto_fix_high_rounded),
-        icon: const Icon(Icons.auto_fix_high_outlined),
-        label: context.loc.manifestations,
-        tooltip : context.loc.manifestations,
-        initialLocation: AppRoutes.manifestations.name,
       )
     ];
   }
