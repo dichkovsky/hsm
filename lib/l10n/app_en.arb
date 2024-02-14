@@ -1,15 +1,21 @@
 {
     "@@locale": "en",
-    "appTitle": "HSM Oracle",
+    "appTitle": "Paradise Oracle",
     
     "@_HOME_SCREEN": {},
     "cards": "Cards",
     "meditations": "Meditations",
     "manifestations": "Manifestations",
 
-    "@_CARD_VIEW_SCREEN": {},
+    "@_CARD_OF_THE_DAY_SCREEN": {},
+    "cardOfTheDay": "Card of the day",
+    "cardOfTheDayDesc": "Get unique card reading daily",
+    "timeTillNextCard": "Next card in {hr} hours and {min} minutes",
+
+    "@_RANDOM_CARD_VIEW_SCREEN": {},
     "randomCard": "Random Card",
-    "randomCardDesc": "Get random card reading",
+    "randomCardDesc": "Get random card reading.",
+    "randomCardDrawsLeft": "{count, plural, =0{no draws left today.} =1{1 draw left today.} other{{count} draws left today.}}",
     "general": "General meaning",
     "visualization": "Visualization",
     "health": "Health",
