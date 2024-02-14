@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hsm/src/features/authentification/presentation/account/account_screen.dart';
+import 'package:hsm/src/features/cards/presentation/card_of_the_day/card_of_the_day_screen.dart';
 import 'package:hsm/src/features/cards/presentation/card_view/card_view_screen.dart';
 import 'package:hsm/src/features/cards/presentation/cards_grid/cards_grid_screen.dart';
 import 'package:hsm/src/features/cards/presentation/cards_home/cards_home_screen.dart';
 import 'package:hsm/src/features/cards/presentation/cards_swiper/cards_swiper_screen.dart';
+import 'package:hsm/src/features/cards/presentation/random_card/random_card_screen.dart';
 import 'package:hsm/src/features/home/presentation/home_screen.dart';
 import 'package:hsm/src/features/manifestations/presentation/manifestations_screen.dart';
 import 'package:hsm/src/features/meditations/presentation/meditations_screen.dart';
@@ -16,6 +18,7 @@ enum AppRoutes {
   home,
   cards,
   randomCard,
+  cardOfTheDay,
   cardsGallery,
   cardsGalleryCardDetails,
   cardsSwiper,
@@ -56,10 +59,16 @@ GoRouter appRouter(AppRouterRef ref) {
             },
             routes: [
               GoRoute(
+                path: 'card-of-the-day',
+                name: AppRoutes.cardOfTheDay.name,
+                parentNavigatorKey: _rootNavigatorKey,
+                builder: (context, state) => const CardOfTheDayScreen(),
+              ),
+              GoRoute(
                 path: 'random-card',
                 name: AppRoutes.randomCard.name,
                 parentNavigatorKey: _rootNavigatorKey,
-                builder: (context, state) => const CardViewScreen(),
+                builder: (context, state) => const RandomCardScreen(),
               ),
               GoRoute(
                 path: 'cards-swiper',
