@@ -8,7 +8,7 @@ class Meditation extends Equatable {
   final String title;
   final String description;
 
-  Meditation({
+  const Meditation({
     required this.id, 
     required this.videoURL, 
     required this.title, 

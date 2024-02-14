@@ -17,6 +17,37 @@ class PreferencesRepository {
     return prefs.setString(key, value);
   }
 
+
+  Future<int> fetchInt(String key, {int defaultVal = 0}) async {
+    final SharedPreferences prefs = await _prefs;
+    final int value = prefs.getInt(key)?? defaultVal;
+    return value;
+  }
+
+  Future<bool> setInt(String key, int value) async {
+    final SharedPreferences prefs = await _prefs;
+    return prefs.setInt(key, value);
+  }
+
+
+  Future<List<String>?> fetchStringList(String key) async {
+    final SharedPreferences prefs = await _prefs;
+    final List<String>? value = prefs.getStringList(key);
+    return value;
+  }
+
+  Future<bool> setStringList(String key, List<String> value) async {
+    final SharedPreferences prefs = await _prefs;
+    return prefs.setStringList(key, value);
+  }
+
+
+
+  Future<bool> clearKey(String key) async {
+    final SharedPreferences prefs = await _prefs;
+    return prefs.remove(key);
+  }
+
 }
 
 @riverpod
