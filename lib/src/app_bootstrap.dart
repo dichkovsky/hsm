@@ -1,9 +1,10 @@
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hsm/src/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart';
+import 'package:hsm/src/features/cards/application/card_of_the_day_service.dart';
+import 'package:hsm/src/features/cards/application/random_card_service.dart';
 import 'package:hsm/src/features/cards/domain/hsm_card.dart';
 import 'package:hsm/src/system/exceptions/error_logger.dart';
 import 'package:hsm/src/system/localization/string_hardcoded.dart';
@@ -24,6 +25,8 @@ abstract class AppBootstrap {
     registerErrorHandlers(errorLogger);
 
     registerLocalStorrage();
+
+    initState(container);
 
     return UncontrolledProviderScope(
       container: container,
@@ -58,6 +61,13 @@ abstract class AppBootstrap {
   void registerLocalStorrage() async {
     await Hive.initFlutter();
     Hive.registerAdapter(HSMCardAdapter());
+  }
+
+  void initState(ProviderContainer container) {
+    container.read(randomCardServiceProvider).clearStorredData();
+    container.read(randomCardServiceProvider).getDrawsLeft();
+    //container.read(cardOfTheDayServiceProvider).clearStorredData();
+    container.read(cardOfTheDayServiceProvider).checkCardOfTheDay();
   }
 
   Future<ProviderContainer> initContainer({bool addDelay = true}) async {
