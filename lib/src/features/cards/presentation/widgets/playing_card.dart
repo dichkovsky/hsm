@@ -6,7 +6,7 @@ import 'package:hsm/src/common_widgets/custom_image.dart';
 class PlayingCard extends StatefulWidget {
 
   const PlayingCard(
-      {Key? key,
+      {super.key,
       this.faceUrl = '',
       this.backUrl = '',
       this.faceUp = false,
@@ -14,8 +14,7 @@ class PlayingCard extends StatefulWidget {
       this.height = 300,
       this.cornerRadius = 10,
       this.flipSpeed = 500, 
-      this.onCardTap}) :
-        super(key: key);
+      this.onCardTap});
 
   final String faceUrl;
   final String backUrl;
