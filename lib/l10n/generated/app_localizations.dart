@@ -100,7 +100,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'HSM Oracle'**
+  /// **'Paradise Oracle'**
   String get appTitle;
 
   /// No description provided for @cards.
@@ -121,6 +121,24 @@ abstract class AppLocalizations {
   /// **'Manifestations'**
   String get manifestations;
 
+  /// No description provided for @cardOfTheDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Card of the day'**
+  String get cardOfTheDay;
+
+  /// No description provided for @cardOfTheDayDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Get unique card reading daily'**
+  String get cardOfTheDayDesc;
+
+  /// No description provided for @timeTillNextCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Next card in {hr} hours and {min} minutes'**
+  String timeTillNextCard(Object hr, Object min);
+
   /// No description provided for @randomCard.
   ///
   /// In en, this message translates to:
@@ -130,8 +148,14 @@ abstract class AppLocalizations {
   /// No description provided for @randomCardDesc.
   ///
   /// In en, this message translates to:
-  /// **'Get random card reading'**
+  /// **'Get random card reading.'**
   String get randomCardDesc;
+
+  /// No description provided for @randomCardDrawsLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{no draws left today.} =1{1 draw left today.} other{{count} draws left today.}}'**
+  String randomCardDrawsLeft(num count);
 
   /// No description provided for @general.
   ///

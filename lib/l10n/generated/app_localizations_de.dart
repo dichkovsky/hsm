@@ -19,10 +19,33 @@ class AppLocalizationsDe extends AppLocalizations {
   String get manifestations => 'Manifestations';
 
   @override
+  String get cardOfTheDay => 'Card of the day';
+
+  @override
+  String get cardOfTheDayDesc => 'Get unique card reading daily';
+
+  @override
+  String timeTillNextCard(Object hr, Object min) {
+    return 'Next card in $hr hours and $min minutes';
+  }
+
+  @override
   String get randomCard => '[DE] Random Card';
 
   @override
   String get randomCardDesc => '[DE] Get random card reading';
+
+  @override
+  String randomCardDrawsLeft(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count draws left today.',
+      one: '1 draw left today.',
+      zero: 'no draws left today.',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get general => 'General meaning';

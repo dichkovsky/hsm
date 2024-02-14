@@ -7,7 +7,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'HSM Oracle';
+  String get appTitle => 'Paradise Oracle';
 
   @override
   String get cards => 'Cards';
@@ -19,10 +19,33 @@ class AppLocalizationsEn extends AppLocalizations {
   String get manifestations => 'Manifestations';
 
   @override
+  String get cardOfTheDay => 'Card of the day';
+
+  @override
+  String get cardOfTheDayDesc => 'Get unique card reading daily';
+
+  @override
+  String timeTillNextCard(Object hr, Object min) {
+    return 'Next card in $hr hours and $min minutes';
+  }
+
+  @override
   String get randomCard => 'Random Card';
 
   @override
-  String get randomCardDesc => 'Get random card reading';
+  String get randomCardDesc => 'Get random card reading.';
+
+  @override
+  String randomCardDrawsLeft(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count draws left today.',
+      one: '1 draw left today.',
+      zero: 'no draws left today.',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get general => 'General meaning';

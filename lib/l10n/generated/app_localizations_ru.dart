@@ -7,7 +7,7 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
-  String get appTitle => 'HSM Оракул';
+  String get appTitle => 'Оракул Рай на Земле';
 
   @override
   String get cards => 'Карты';
@@ -19,10 +19,34 @@ class AppLocalizationsRu extends AppLocalizations {
   String get manifestations => 'Манифестации';
 
   @override
+  String get cardOfTheDay => 'Карта дня';
+
+  @override
+  String get cardOfTheDayDesc => 'Вытяните счастливую карту раз в день';
+
+  @override
+  String timeTillNextCard(Object hr, Object min) {
+    return 'Следующая карта через $hr часов $min минут';
+  }
+
+  @override
   String get randomCard => 'Случайная карта';
 
   @override
-  String get randomCardDesc => 'Получите чтение для случайной карты из колоды';
+  String get randomCardDesc => 'Получите чтение случайной карты.';
+
+  @override
+  String randomCardDrawsLeft(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Осталось $count карт сегодня.',
+      few: 'Осталось $count карты сегодня.',
+      one: 'Осталась 1 карта сегодня.',
+      zero: 'Осталось 0 карт сегодня.',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get general => 'Общее значение';
