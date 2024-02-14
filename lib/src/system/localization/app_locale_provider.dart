@@ -10,8 +10,8 @@ part 'app_locale_provider.g.dart';
 enum SupportedLanguages {
   english("English", "en"),
   russian("Русский", "ru"),
-  german("Deutsche", "de"),
-  spanish("Español", "es");
+  /* german("Deutsche", "de"),
+  spanish("Español", "es") */;
 
   const SupportedLanguages(this.label, this.isoCode);
   final String label;
