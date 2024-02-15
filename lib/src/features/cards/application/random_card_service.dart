@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hsm/src/features/authentification/application/account_service.dart';
 import 'package:hsm/src/features/cards/data/cards_repository_firebase.dart';
 import 'package:hsm/src/features/cards/domain/hsm_card.dart';
-import 'package:hsm/src/system/exceptions/app_exception.dart';
 import 'package:hsm/src/system/preferences/preferences_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -44,11 +44,10 @@ class RandomCardService {
 
   // TODO: get this value from firebase configuration
   static const maxDailyCards = 3;
-  // TODO: get this value from the user account
-  static const isPrem = false;
 
   Future<int> getDrawsLeft() async {
     final drawsLeftNotivier = ref.read(randomCardsDrawsLeftProvider.notifier);
+    final isPrem = ref.read(isPremiunProvider);
     var drawsLeft = -1;
     if (!isPrem) {
       final pref = ref.read(preferencesRepositoryProvider);
@@ -70,6 +69,7 @@ class RandomCardService {
   Future<HSMCard?> fetchNextRandomCard() async {
     
     final drawsLeft = await getDrawsLeft();
+    final isPrem = ref.read(isPremiunProvider);
     
     if (isPrem || drawsLeft > 0) {
       final cardsRemoteRepo = ref.read(cardsRepositoryFirebaseProvider);

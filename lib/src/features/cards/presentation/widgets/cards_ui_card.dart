@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hsm/src/common_widgets/ui_card.dart';
 import 'package:hsm/src/constants/app_sizes.dart';
+import 'package:hsm/src/features/authentification/application/account_service.dart';
 import 'package:hsm/src/features/cards/application/card_of_the_day_service.dart';
 import 'package:hsm/src/features/cards/application/random_card_service.dart';
 import 'package:hsm/src/system/localization/app_localizations_context.dart';
@@ -77,13 +76,19 @@ class CardsUICrad extends ConsumerWidget {
         );
 
       case CardsUICardType.gallery:
+        final isPrem = ref.watch(isPremiunProvider);
         return UICard(
           height: Sizes.p104,
           title: context.loc.cardsGallery,
           subTitle: context.loc.cardsGalleryDesc,
           bgImage: 'assets/elements/CardsDeck.png',
           onTap: () {
-            context.goNamed(AppRoutes.cardsGallery.name);
+            if (isPrem) {
+              context.goNamed(AppRoutes.cardsGallery.name);
+            } else {
+              // TODO: Show prem popup here
+              return;
+            }
           },
         );
         
