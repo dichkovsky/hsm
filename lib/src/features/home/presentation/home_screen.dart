@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeScreen extends ConsumerWidget {
-  const HomeScreen({Key? key, required this.child}) : super(key: key);
+  const HomeScreen({super.key, required this.child});
 
   final Widget child;
 
