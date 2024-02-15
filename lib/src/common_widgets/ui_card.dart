@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:hsm/src/common_widgets/custom_image.dart';
 import 'package:hsm/src/constants/app_sizes.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +34,7 @@ class UICard extends StatelessWidget {
       child: Card(
         clipBehavior: Clip.antiAlias,
         color: bgColor,
+        elevation: needsDecor ? 2 : 1,
         child: InkWell(
           onTap: onTap,
           child: Stack(
@@ -43,10 +46,10 @@ class UICard extends StatelessWidget {
                   bottom: 0,
                   child: needsDecor ? 
                     Transform.rotate(
-                      angle: .2, 
+                      angle: pi / 12, 
                       child: Container(
                         decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3))),
-                        clipBehavior: Clip.hardEdge,
+                        clipBehavior: Clip.antiAlias,
                         child: CustomImage(
                           imageUrl: bgImage,
                         ),
