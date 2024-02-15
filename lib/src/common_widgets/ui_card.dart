@@ -9,6 +9,7 @@ class UICard extends StatelessWidget {
       required this.title,
       this.bgColor,
       this.bgImage,
+      this.needsDecor = false,
       this.titleColor,
       this.subTitle,
       this.subTitleColor, 
@@ -16,6 +17,7 @@ class UICard extends StatelessWidget {
 
   final double height;
   final String title;
+  final bool needsDecor;
   final Color? titleColor;
   final String? subTitle;
   final Color? subTitleColor;
@@ -39,7 +41,21 @@ class UICard extends StatelessWidget {
                   right: Sizes.p8,
                   top: 0,
                   bottom: 0,
-                  child:CustomImage(imageUrl: bgImage)
+                  child: needsDecor ? 
+                    Transform.rotate(
+                      angle: .2, 
+                      child: Container(
+                        decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3))),
+                        clipBehavior: Clip.hardEdge,
+                        child: CustomImage(
+                          imageUrl: bgImage,
+                        ),
+                      )
+                    ) 
+                    : 
+                    CustomImage(
+                      imageUrl: bgImage,
+                    )
                 ),
               Padding(
                   padding: const EdgeInsets.fromLTRB(Sizes.p8, Sizes.p8, Sizes.p88, Sizes.p8),
