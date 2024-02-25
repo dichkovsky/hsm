@@ -2,10 +2,12 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hsm/src/constants/app_sizes.dart';
 import 'package:hsm/src/features/cards/domain/hsm_card.dart';
 import 'package:hsm/src/features/cards/presentation/widgets/card_face.dart';
 import 'package:hsm/src/system/localization/app_localizations_context.dart';
+import 'package:hsm/src/system/routing/app_router.dart';
 
 mixin BaseCardViewMixin {
 
@@ -18,7 +20,7 @@ mixin BaseCardViewMixin {
     );
   }
 
-  Widget getCardScreen(String title, HSMCard card, BuildContext context, WidgetRef ref) {
+  Widget getCardScreen(String title, HSMCard card, bool blockContent, BuildContext context, WidgetRef ref, {bool animate = true}) {
     return Scaffold(
       appBar: getScreenAppBar(title, card, context, ref),
       body: LayoutBuilder(
@@ -27,9 +29,9 @@ mixin BaseCardViewMixin {
           final height = constraints.maxHeight;
           final aspect = width/height;
 
-          var descriptionColumn = buildDescriptionColumn(aspect, card, context, ref);
+          var descriptionColumn = buildDescriptionColumn(aspect, card, blockContent, context, ref);
 
-          var cardDisplay = buildCardDisplay(true, card, context, ref);
+          var cardDisplay = buildCardDisplay(animate, card, context, ref);
 
           if (aspect > 1) {
             // Landscape
@@ -82,7 +84,7 @@ mixin BaseCardViewMixin {
     return Center(child: animate ? hero.animate().fadeIn(duration: animationDuration, curve: Curves.ease).scale() : hero);
   }
 
-  Column buildDescriptionColumn(double aspect, HSMCard card, BuildContext context, WidgetRef ref) {
+  Column buildDescriptionColumn(double aspect, HSMCard card, bool blockContent, BuildContext context, WidgetRef ref) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -96,14 +98,37 @@ mixin BaseCardViewMixin {
         Text(card.visualization),
         const SizedBox(height: Sizes.p12),
         Text(context.loc.health, style: Theme.of(context).textTheme.titleLarge),
-        Text(card.health),
+        if (blockContent) getContentPlaceholder(context) else Text(card.health),
         const SizedBox(height: Sizes.p12),
         Text(context.loc.relationship, style: Theme.of(context).textTheme.titleLarge),
-        Text(card.relationship),
+        if (blockContent) getContentPlaceholder(context) else Text(card.relationship),
         const SizedBox(height: Sizes.p12),
         Text(context.loc.workFinance, style: Theme.of(context).textTheme.titleLarge),
-        Text(card.workFinance),
+        if (blockContent) getContentPlaceholder(context) else Text(card.workFinance),
       ],
+    );
+  }
+
+  Widget getContentPlaceholder(BuildContext context) {
+    return GestureDetector(
+      onTap: () => context.pushNamed(
+        AppRoutes.featureBlocked.name, queryParameters: {
+          "title": context.loc.limitedAvalibilityTitle, 
+          "msg": context.loc.limitedAvalibilityMsg
+        }
+      ),
+      child: Container(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(Sizes.p8)),
+          color: Theme.of(context).colorScheme.tertiaryContainer,
+        ),
+        height: 1.3*Sizes.p104,
+        child: Padding(
+          padding: EdgeInsets.all(Sizes.p8),
+          child: Text(context.loc.limitedAvalibilityNotice)
+        ),
+      ),
     );
   }
 

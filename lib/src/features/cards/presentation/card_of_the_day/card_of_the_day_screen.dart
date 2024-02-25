@@ -17,7 +17,7 @@ class CardOfTheDayScreen extends ConsumerWidget with BaseCardViewMixin {
     final cardFuture = ref.watch(fetchCardOfTheDayFutureProvider);
 
     return cardFuture.when(
-      data: (HSMCard? card) => getCardScreen(card!.title, card, context, ref), 
+      data: (HSMCard? card) => getCardScreen(card!.title, card, false, context, ref), 
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, st) => Center(child: ErrorMessageWidget(e.toString()))
     );

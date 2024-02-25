@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 class CardViewScreen extends ConsumerWidget with BaseCardViewMixin {
-  const CardViewScreen({required this.cardId, super.key});
+  CardViewScreen({required this.cardId, super.key});
 
   final HSMCardID cardId;
 
@@ -17,7 +17,7 @@ class CardViewScreen extends ConsumerWidget with BaseCardViewMixin {
     final cardFuture = ref.watch(cardFutureProvider(cardId));
 
     return cardFuture.when(
-      data: (HSMCard? card) => getCardScreen(card!.title, card, context, ref), 
+      data: (HSMCard? card) => getCardScreen(card!.title, card, true, context, ref, animate: false), 
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, st) => Center(child: ErrorMessageWidget(e.toString()))
     );
