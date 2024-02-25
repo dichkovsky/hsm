@@ -42,7 +42,7 @@ class AppLocalizationsDe extends AppLocalizations {
       locale: localeName,
       other: '$count draws left today.',
       one: '1 draw left today.',
-      zero: 'no draws left today.',
+      zero: 'No more draws left for today.',
     );
     return '$_temp0';
   }
@@ -95,4 +95,31 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get appLang => '[DE] Application Language';
+
+  @override
+  String get comingSoonTitle => 'Coming soon';
+
+  @override
+  String get comingSoonMsg => 'We are working hard to update the application with more exciting features. Keep an eye on app updates!';
+
+  @override
+  String get limitedAvalibilityNotice => 'Content is not available. Click for details.';
+
+  @override
+  String get limitedAvalibilityTitle => 'Access restriction';
+
+  @override
+  String get limitedAvalibilityMsg => 'This text is available only in the Card of the Day screen. Soon we will introduce an option to unblock it. Stay tuned for the application updates!';
+
+  @override
+  String get randonLimitTitle => 'No more draws today';
+
+  @override
+  String get randomLimitMsg => 'Your are out of the random card draws for today. Wait for tomorrow to get 3 more draws.';
+
+  @override
+  String get commonBack => 'Back';
+
+  @override
+  String get commonRegister => 'Register';
 }

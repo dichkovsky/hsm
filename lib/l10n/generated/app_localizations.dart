@@ -154,7 +154,7 @@ abstract class AppLocalizations {
   /// No description provided for @randomCardDrawsLeft.
   ///
   /// In en, this message translates to:
-  /// **'{count, plural, =0{no draws left today.} =1{1 draw left today.} other{{count} draws left today.}}'**
+  /// **'{count, plural, =0{No more draws left for today.} =1{1 draw left today.} other{{count} draws left today.}}'**
   String randomCardDrawsLeft(num count);
 
   /// No description provided for @general.
@@ -234,6 +234,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Application Language'**
   String get appLang;
+
+  /// No description provided for @comingSoonTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get comingSoonTitle;
+
+  /// No description provided for @comingSoonMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'We are working hard to update the application with more exciting features. Keep an eye on app updates!'**
+  String get comingSoonMsg;
+
+  /// No description provided for @limitedAvalibilityNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Content is not available. Click for details.'**
+  String get limitedAvalibilityNotice;
+
+  /// No description provided for @limitedAvalibilityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Access restriction'**
+  String get limitedAvalibilityTitle;
+
+  /// No description provided for @limitedAvalibilityMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'This text is available only in the Card of the Day screen. Soon we will introduce an option to unblock it. Stay tuned for the application updates!'**
+  String get limitedAvalibilityMsg;
+
+  /// No description provided for @randonLimitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No more draws today'**
+  String get randonLimitTitle;
+
+  /// No description provided for @randomLimitMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Your are out of the random card draws for today. Wait for tomorrow to get 3 more draws.'**
+  String get randomLimitMsg;
+
+  /// No description provided for @commonBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get commonBack;
+
+  /// No description provided for @commonRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get commonRegister;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -15,7 +15,7 @@
     "@_RANDOM_CARD_VIEW_SCREEN": {},
     "randomCard": "Random Card",
     "randomCardDesc": "Get random card reading.",
-    "randomCardDrawsLeft": "{count, plural, =0{no draws left today.} =1{1 draw left today.} other{{count} draws left today.}}",
+    "randomCardDrawsLeft": "{count, plural, =0{No more draws left for today.} =1{1 draw left today.} other{{count} draws left today.}}",
     "general": "General meaning",
     "visualization": "Visualization",
     "health": "Health",
@@ -42,6 +42,19 @@
         }
     },
     "appLang": "Application Language",
+
+    "@_FEATURE_BLOCK": {},
+    "comingSoonTitle": "Coming soon",
+    "comingSoonMsg": "We are working hard to update the application with more exciting features. Keep an eye on app updates!",
+    "limitedAvalibilityNotice": "Content is not available. Click for details.",
+    "limitedAvalibilityTitle": "Access restriction",
+    "limitedAvalibilityMsg": "This text is available only in the Card of the Day screen. Soon we will introduce an option to unblock it. Stay tuned for the application updates!",
+    "randonLimitTitle": "No more draws today",
+    "randomLimitMsg": "Your are out of the random card draws for today. Wait for tomorrow to get 3 more draws.",
+    
+    "@_COMMON_STRINGS": {},
+    "commonBack": "Back",
+    "commonRegister": "Register",
 
     "@_END": {}
 }

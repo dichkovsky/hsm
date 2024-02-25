@@ -15,7 +15,16 @@
     "cardsGallery",
     "cardsGalleryDesc",
     "cardsSwiper",
-    "cardsSwiperDesc"
+    "cardsSwiperDesc",
+    "comingSoonTitle",
+    "comingSoonMsg",
+    "limitedAvalibilityNotice",
+    "limitedAvalibilityTitle",
+    "limitedAvalibilityMsg",
+    "randonLimitTitle",
+    "randomLimitMsg",
+    "commonBack",
+    "commonRegister"
   ],
 
   "es": [
@@ -34,6 +43,15 @@
     "cardsGallery",
     "cardsGalleryDesc",
     "cardsSwiper",
-    "cardsSwiperDesc"
+    "cardsSwiperDesc",
+    "comingSoonTitle",
+    "comingSoonMsg",
+    "limitedAvalibilityNotice",
+    "limitedAvalibilityTitle",
+    "limitedAvalibilityMsg",
+    "randonLimitTitle",
+    "randomLimitMsg",
+    "commonBack",
+    "commonRegister"
   ]
 }

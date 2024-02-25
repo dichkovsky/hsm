@@ -96,4 +96,31 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get appLang => 'Язык приложения';
+
+  @override
+  String get comingSoonTitle => 'Скоро';
+
+  @override
+  String get comingSoonMsg => 'Мы усердно работаем над обновлением приложения и добавлением новых увлекательных функций. Следите за обновлениями приложения!';
+
+  @override
+  String get limitedAvalibilityNotice => 'Контент недоступен. Кликните, чтобы узнать подробности.';
+
+  @override
+  String get limitedAvalibilityTitle => 'Ограничение доступа';
+
+  @override
+  String get limitedAvalibilityMsg => 'Этот текст доступен только на экране \'Карта Дня\'. Скоро мы представим возможность разблокировать его и тут. Следите за обновлениями приложения!';
+
+  @override
+  String get randonLimitTitle => 'Сегодня попытки закончились';
+
+  @override
+  String get randomLimitMsg => 'У вас закончились попытки вытянуть случайные карты на сегодня. Подождите до завтра, чтобы получить еще 3 попытки.';
+
+  @override
+  String get commonBack => 'Вернуться';
+
+  @override
+  String get commonRegister => 'Зарегистрироваться';
 }
