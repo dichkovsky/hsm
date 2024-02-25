@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hsm/src/features/authentification/presentation/account/account_screen.dart';
+import 'package:hsm/src/features/authentification/presentation/featur_blocked_screen/featur_blocked_screen.dart';
 import 'package:hsm/src/features/cards/presentation/card_of_the_day/card_of_the_day_screen.dart';
 import 'package:hsm/src/features/cards/presentation/card_view/card_view_screen.dart';
 import 'package:hsm/src/features/cards/presentation/cards_grid/cards_grid_screen.dart';
@@ -28,6 +29,7 @@ enum AppRoutes {
   account,
   notifications,
   signIn,
+  featureBlocked
 }
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -63,6 +65,17 @@ GoRouter appRouter(AppRouterRef ref) {
                 name: AppRoutes.cardOfTheDay.name,
                 parentNavigatorKey: _rootNavigatorKey,
                 builder: (context, state) => const CardOfTheDayScreen(),
+              ),
+              GoRoute(
+                path: 'feature-block',
+                name: AppRoutes.featureBlocked.name,
+                parentNavigatorKey: _rootNavigatorKey,
+                builder: (context, state) {
+                  return FeatureBlockedScreen(
+                    state.uri.queryParameters['title'],
+                    state.uri.queryParameters['msg']
+                  );
+                }
               ),
               GoRoute(
                 path: 'random-card',
