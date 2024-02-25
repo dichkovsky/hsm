@@ -46,7 +46,7 @@ class UICard extends StatelessWidget {
                   bottom: 0,
                   child: needsDecor ? 
                     Transform.rotate(
-                      angle: pi / 12, 
+                      angle: 1.5*(pi / 12), 
                       child: Container(
                         decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3))),
                         clipBehavior: Clip.antiAlias,
