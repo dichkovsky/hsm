@@ -44,7 +44,7 @@ class CardsRepositoryFirebase implements CardsRepositoryBase {
       final query = _cardsQuery();
       final snapshot = await query.get();
       final cards = snapshot.docs.map((docSnapshot) => docSnapshot.data()).toList();
-      cardsLocalRepo.writeLocalCards(cards);
+      if (cards.isNotEmpty) cardsLocalRepo.writeLocalCards(cards);
       return cards;
     }
   }
