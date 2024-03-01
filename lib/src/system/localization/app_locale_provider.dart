@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hsm/src/features/cards/data/cards_repository_local.dart';
 import 'package:hsm/src/system/exceptions/app_exception.dart';
 import 'package:hsm/src/system/preferences/preferences_repository.dart';
 import 'package:intl/intl.dart';
@@ -19,6 +18,27 @@ enum SupportedLanguages {
 }
 
 @riverpod
+class AppLocaleStr extends _$AppLocaleStr {
+
+  static const localeKey = 'locale';
+  
+  @override
+  String build() {
+    final sysLocale = Intl.getCurrentLocale().split('_')[0];
+    final appLocaleAsyncValue = ref.read(preferencesFetchStringFutureProvider(localeKey, defaultVal: sysLocale));
+    return appLocaleAsyncValue.value?? sysLocale;
+  }
+
+  update(String val) {
+    state = val;
+  }
+
+  List<Locale> getSupportedLocales() {
+    return SupportedLanguages.values.map((e) => Locale(e.isoCode)).toList();
+  }
+}
+
+@riverpod
 class AppLocale extends _$AppLocale {
 
   static const localeKey = 'locale';
@@ -35,8 +55,7 @@ class AppLocale extends _$AppLocale {
     final isUpdated = await preferencesRepository.setString(localeKey, value);
     if (isUpdated) {
       state = Locale.fromSubtags(languageCode:value);
-      final lsp = ref.read(cardsRepositoryLocalProvider);
-      await lsp.clearStorrage();
+      ref.read(appLocaleStrProvider.notifier).update(value);
     } else {
       throw LocalStorrageSaveException();
     }

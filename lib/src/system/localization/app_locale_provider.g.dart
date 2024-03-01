@@ -6,7 +6,21 @@ part of 'app_locale_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appLocaleHash() => r'7f9fbaae51f97fcbbb960f4248a568753f193e23';
+String _$appLocaleStrHash() => r'88f7630ec8ff3f77f4ff1a918981c7a8ecbf0559';
+
+/// See also [AppLocaleStr].
+@ProviderFor(AppLocaleStr)
+final appLocaleStrProvider = NotifierProvider<AppLocaleStr, String>.internal(
+  AppLocaleStr.new,
+  name: r'appLocaleStrProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$appLocaleStrHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$AppLocaleStr = Notifier<String>;
+String _$appLocaleHash() => r'e5e2862076e5a103e70d2ed4e9587ac96a8c7bdf';
 
 /// See also [AppLocale].
 @ProviderFor(AppLocale)
