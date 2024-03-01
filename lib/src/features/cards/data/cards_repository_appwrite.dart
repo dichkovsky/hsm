@@ -28,7 +28,7 @@ class CardsRepositoryAppwrite implements CardsRepositoryBase {
   
   @override
   Future<List<HSMCard>> fetchCardsList() async {
-    final lang = ref.read(appLocaleProvider).languageCode;
+    final lang = ref.read(appLocaleStrProvider);
     final db = ref.read(appwriteDatabasesProvider);
     String collectionId = AppwriteConstant.cardsLangCollections.lookup(lang).getOrElse(() => AppwriteConstant.cardsEnId);
     final documentsList = await db.listDocuments(databaseId: AppwriteConstant.databaseId, collectionId: collectionId, queries: [

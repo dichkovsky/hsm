@@ -18,7 +18,7 @@ class CardsRepositoryFirebase implements CardsRepositoryBase {
   const CardsRepositoryFirebase(this.ref, this._firestore);
 
   Query<HSMCard> _cardsQuery() {
-    final lang = ref.read(appLocaleProvider).languageCode;
+    final lang = ref.read(appLocaleStrProvider);
     return _firestore
       .collection('cards_$lang').withConverter(
         fromFirestore: (doc, _) => HSMCard.fromMap(doc.data()!),
@@ -27,7 +27,7 @@ class CardsRepositoryFirebase implements CardsRepositoryBase {
   }
 
   DocumentReference<HSMCard> _cardDocRef(HSMCardID id) {
-    final lang = ref.read(appLocaleProvider).languageCode;
+    final lang = ref.read(appLocaleStrProvider);
     return _firestore
       .collection('cards_$lang').doc(id).withConverter(
         fromFirestore: (doc, _) => HSMCard.fromMap(doc.data()!),
