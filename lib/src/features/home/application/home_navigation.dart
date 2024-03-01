@@ -6,10 +6,20 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'home_navigation.g.dart';
 
+@riverpod
+class HomePageSelectedTabIndex extends _$HomePageSelectedTabIndex {
+  @override
+  int build() {
+    return 0;
+  }
+
+  updateIndex(value) {
+    state = value;
+  }
+}
+
 class HomePageNav {
   final Ref ref;
-
-  int currentIndex = 0;
 
   List<MyCustomNavBarItem> getNavigation(BuildContext context) {
     return [
@@ -33,7 +43,7 @@ class HomePageNav {
   HomePageNav(this.ref);
 
   void setCurrent(int current) {
-    currentIndex = current;
+    ref.read(homePageSelectedTabIndexProvider.notifier).updateIndex(current);
   }
 }
 
