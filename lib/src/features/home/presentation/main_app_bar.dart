@@ -2,11 +2,26 @@ import 'package:go_router/go_router.dart';
 import 'package:hsm/src/constants/brakepoints.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hsm/src/features/home/application/home_navigation.dart';
 import 'package:hsm/src/system/localization/app_localizations_context.dart';
 import 'package:hsm/src/system/routing/app_router.dart';
 
 class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
+
+  List<ButtonSegment<MyCustomNavBarItem>> _appNavLine(BuildContext context, tabs) {
+    final List<ButtonSegment<MyCustomNavBarItem>> appNavEntries = <ButtonSegment<MyCustomNavBarItem>>[];
+    for (final MyCustomNavBarItem item in tabs) {
+      appNavEntries.add(
+        ButtonSegment<MyCustomNavBarItem>(
+          value: item, 
+          label: Text(item.label), 
+          icon: item.icon,
+        )
+      );
+    }
+    return appNavEntries;
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -34,10 +49,30 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
         ],
       );
     } else {
+      final homePageNav = ref.read(homePageNavProvider);
+      final tabs = homePageNav.getNavigation(context);
       return AppBar(
         title: Text(context.loc.appTitle),
         actions: [
-          //const NotificationsButton(),
+          SegmentedButton(
+            segments: _appNavLine(context, tabs), 
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.selected)){
+                      return Theme.of(context).primaryColor.withAlpha(70);
+                    }
+                    return Colors.transparent;
+                  },
+              ),
+            ),
+            selectedIcon: tabs[ref.watch(homePageSelectedTabIndexProvider)].selectedIcon,
+            selected: <MyCustomNavBarItem>{tabs[ref.watch(homePageSelectedTabIndexProvider)]},
+            onSelectionChanged: (Set<MyCustomNavBarItem> newSelection) {
+              ref.read(homePageSelectedTabIndexProvider.notifier).updateIndex(tabs.indexOf(newSelection.first));
+              context.pushNamed(newSelection.first.initialLocation);
+            }
+          ),
           IconButton(
             icon: const Icon(Icons.account_circle),
             onPressed: () => context.pushNamed(AppRoutes.account.name),

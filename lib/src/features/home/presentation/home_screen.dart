@@ -13,19 +13,34 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final homePageNav = ref.read(homePageNavProvider);
     final tabs = homePageNav.getNavigation(context);
-    return Scaffold(
-      appBar: const HomeAppBar(),
-      body: SafeArea(child: child),
-      bottomNavigationBar: NavigationBar(
-        indicatorColor: Theme.of(context).colorScheme.primaryContainer,
-        selectedIndex: ref.watch(homePageNavProvider).currentIndex,
-        onDestinationSelected: (int index) {
-          String location = tabs[index].initialLocation;
-          homePageNav.setCurrent(index);
-          context.goNamed(location);
-        },
-        destinations: tabs
-      ) ,
+    return OrientationBuilder(builder: (context, orientation) 
+      {
+        if (orientation == Orientation.portrait) {
+          return Scaffold(
+            appBar: const HomeAppBar(),
+            body: SafeArea(child: child),
+            bottomNavigationBar: NavigationBar(
+              indicatorColor: Theme.of(context).colorScheme.primaryContainer,
+              selectedIndex: ref.watch(homePageSelectedTabIndexProvider),
+              onDestinationSelected: (int index) {
+                String location = tabs[index].initialLocation;
+                ref.read(homePageSelectedTabIndexProvider.notifier).updateIndex(index);
+                context.goNamed(location);
+              },
+              destinations: tabs
+            ) ,
+          );
+        } else {
+          return Scaffold(
+            appBar: const HomeAppBar(),
+            body: SafeArea(
+              bottom: false,
+              top: false,
+              child: child
+            ),
+          );
+        }
+      },
     );
   }
 }
