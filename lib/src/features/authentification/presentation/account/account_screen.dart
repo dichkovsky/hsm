@@ -23,8 +23,8 @@ class AccountScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
-    final appLocale = ref.watch(appLocaleProvider);
-    final lang = SupportedLanguages.values.firstWhere((element) => element.isoCode == appLocale.languageCode, orElse: () => SupportedLanguages.english ); 
+    final appLocale = ref.watch(appLocaleStrProvider);
+    final lang = SupportedLanguages.values.firstWhere((element) => element.isoCode == appLocale, orElse: () => SupportedLanguages.english ); 
 
     return Scaffold(
       appBar: AppBar(

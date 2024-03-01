@@ -36,6 +36,10 @@ class AppLocaleStr extends _$AppLocaleStr {
   List<Locale> getSupportedLocales() {
     return SupportedLanguages.values.map((e) => Locale(e.isoCode)).toList();
   }
+
+  Locale getCurrentLocale() {
+    return Locale.fromSubtags(languageCode: state);
+  }
 }
 
 @riverpod
