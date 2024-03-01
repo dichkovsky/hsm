@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:hsm/src/features/cards/application/card_of_the_day_service.dart';
 import 'package:hsm/src/features/cards/application/random_card_service.dart';
 import 'package:hsm/src/features/cards/domain/hsm_card.dart';
+import 'package:hsm/src/features/meditations/domain/meditation.dart';
 import 'package:hsm/src/system/exceptions/error_logger.dart';
 import 'package:hsm/src/system/localization/string_hardcoded.dart';
 
@@ -61,6 +62,7 @@ abstract class AppBootstrap {
   void registerLocalStorrage() async {
     await Hive.initFlutter();
     Hive.registerAdapter(HSMCardAdapter());
+    Hive.registerAdapter(MeditationAdapter());
   }
 
   void initState(ProviderContainer container) {
