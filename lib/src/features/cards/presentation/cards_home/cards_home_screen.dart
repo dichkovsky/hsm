@@ -7,16 +7,31 @@ class CardsHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    const items = [
+      CardsUICrad(CardsUICardType.cardOfTheDay),
+      CardsUICrad(CardsUICardType.randomCard),
+      CardsUICrad(CardsUICardType.swiper),
+      CardsUICrad(CardsUICardType.gallery),
+    ];
+
     return Container(
       alignment: Alignment.center,
-      child: ListView(
-        padding: const EdgeInsets.all(Sizes.p8),
-        children: const [
-          CardsUICrad(CardsUICardType.cardOfTheDay),
-          CardsUICrad(CardsUICardType.randomCard),
-          CardsUICrad(CardsUICardType.swiper),
-          CardsUICrad(CardsUICardType.gallery),
-        ],
+      child: OrientationBuilder(
+        builder: (context, orientation) {
+          if (orientation == Orientation.portrait) {
+            return ListView(
+              padding: const EdgeInsets.all(Sizes.p8),
+              children: items,
+            );
+          } else {
+            return GridView.count(
+              crossAxisCount: 2,
+              childAspectRatio: 3,
+              children: items
+            );
+          }
+        },
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:hsm/src/common_widgets/error_message_widget.dart';
+import 'package:hsm/src/constants/app_sizes.dart';
 import 'package:hsm/src/features/cards/application/cards_service.dart';
 import 'package:hsm/src/features/cards/presentation/cards_swiper/cards_swiper_screen_controller.dart';
 import 'package:hsm/src/features/cards/presentation/widgets/card_face.dart';
@@ -29,40 +30,44 @@ class CardsSwiperScreen extends ConsumerWidget {
     }
     // * Otherwise, we use the current or previous value to show the products
 
-    final pageController = LoopPageController(
-      initialPage: swiperIndex,
-      viewportFraction: 0.9,
-      keepPage: true
-    );
-
     return Scaffold(
       appBar: AppBar(
         title: Text(context.loc.cardsSwiper),
         centerTitle: true,
       ),
-      body: LoopPageView.builder(
-        itemCount: cards.length,
-        controller: pageController,
-        onPageChanged: (value) => ref.read(swiperIndexStateProvider.notifier).state = value,
-        itemBuilder: (context, index) {
-          final card =  cards[index];
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Hero(
-                tag: "card${card.id}",
-                child: CardFace(
-                  card: card,
-                  onPressed: () => context.goNamed(
-                    AppRoutes.cardsSwiperCardDetails.name,
-                    pathParameters: {'id': card.id},
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+
+          return LoopPageView.builder(
+            itemCount: cards.length,
+            controller: LoopPageController(
+              initialPage: swiperIndex,
+              scrollMode: LoopScrollMode.backwards,
+              viewportFraction: orientation == Orientation.landscape ? .3 : .9,
+              keepPage: true,
+            ),
+            onPageChanged: (value) => ref.read(swiperIndexStateProvider.notifier).state = value,
+            itemBuilder: (context, index) {
+              final card =  cards[index];
+              return Padding(
+                padding: const EdgeInsets.all(Sizes.p8),
+                child: Center(
+                  child: Hero(
+                    tag: "card${card.id}",
+                    child: CardFace(
+                      card: card,
+                      onPressed: () => context.goNamed(
+                        AppRoutes.cardsSwiperCardDetails.name,
+                        pathParameters: {'id': card.id},
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
+              );
+            }
           );
         }
-      ),
+      )
     );
   }
 }

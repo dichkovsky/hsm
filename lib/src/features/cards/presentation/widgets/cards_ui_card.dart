@@ -42,7 +42,7 @@ class CardsUICrad extends ConsumerWidget {
           subTitle: context.loc.cardOfTheDayDesc,
           subTitleColor: isCardOrTheDayAvailable ? Theme.of(context).colorScheme.background : null,
           bgImage: cardOfTheDayImg,
-          needsDecor: !isCardOrTheDayAvailable,
+          needsDecor: true,
           onTap: () {
             context.goNamed(AppRoutes.cardOfTheDay.name);
           },
@@ -58,7 +58,8 @@ class CardsUICrad extends ConsumerWidget {
           height: Sizes.p104,
           title: context.loc.randomCard,
           subTitle: randomCardSubtitle,
-          bgImage: 'assets/elements/CardOfTheDay.png',
+          bgImage: 'assets/elements/mistery_card.png',
+          needsDecor: true,
           onTap: () {
             context.goNamed(AppRoutes.randomCard.name);
           },
@@ -69,7 +70,8 @@ class CardsUICrad extends ConsumerWidget {
           height: Sizes.p104,
           title: context.loc.cardsSwiper,
           subTitle: context.loc.cardsSwiperDesc,
-          bgImage: 'assets/elements/CardOfTheDay.png',
+          bgImage: 'assets/elements/swiper.png',
+          needsDecor: true,
           onTap: () {
             context.goNamed(AppRoutes.cardsSwiper.name);
           },
@@ -81,13 +83,13 @@ class CardsUICrad extends ConsumerWidget {
           height: Sizes.p104,
           title: context.loc.cardsGallery,
           subTitle: context.loc.cardsGalleryDesc,
-          bgImage: 'assets/elements/CardsDeck.png',
+          bgImage: 'assets/elements/gallery.png',
+          needsDecor: true,
           onTap: () {
             if (isPrem) {
               context.goNamed(AppRoutes.cardsGallery.name);
             } else {
-              // TODO: Show prem popup here
-              return;
+              context.goNamed(AppRoutes.featureBlocked.name);
             }
           },
         );
