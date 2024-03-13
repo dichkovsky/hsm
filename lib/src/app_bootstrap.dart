@@ -66,9 +66,7 @@ abstract class AppBootstrap {
   }
 
   void initState(ProviderContainer container) {
-    container.read(randomCardServiceProvider).clearStorredData();
     container.read(randomCardServiceProvider).getDrawsLeft();
-    //container.read(cardOfTheDayServiceProvider).clearStorredData();
     container.read(cardOfTheDayServiceProvider).checkCardOfTheDay();
   }
 
