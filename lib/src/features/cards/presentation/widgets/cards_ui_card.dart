@@ -8,12 +8,14 @@ import 'package:hsm/src/features/cards/application/card_of_the_day_service.dart'
 import 'package:hsm/src/features/cards/application/random_card_service.dart';
 import 'package:hsm/src/system/localization/app_localizations_context.dart';
 import 'package:hsm/src/system/routing/app_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 enum CardsUICardType {
   cardOfTheDay,
   randomCard,
   swiper,
-  gallery
+  gallery,
+  getCards
 }
 
 class CardsUICrad extends ConsumerWidget {
@@ -90,6 +92,23 @@ class CardsUICrad extends ConsumerWidget {
               context.goNamed(AppRoutes.cardsGallery.name);
             } else {
               context.goNamed(AppRoutes.featureBlocked.name);
+            }
+          },
+        );
+
+      case CardsUICardType.getCards:
+        return UICard(
+          height: Sizes.p104,
+          title: context.loc.getCards,
+          subTitle: context.loc.getCardsSubTitle,
+          bgImage: 'assets/elements/gallery.png',
+          needsDecor: true,
+          onTap: () async {
+            final Uri url = Uri.parse('https://paradiseoracle.com');
+            if (await canLaunchUrl(url)){
+                await launchUrl(url);
+            } else {
+              throw Exception('Could not launch $url');
             }
           },
         );

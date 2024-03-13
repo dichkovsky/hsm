@@ -12,26 +12,29 @@ class CardsHomeScreen extends StatelessWidget {
       CardsUICrad(CardsUICardType.cardOfTheDay),
       CardsUICrad(CardsUICardType.randomCard),
       CardsUICrad(CardsUICardType.swiper),
-      CardsUICrad(CardsUICardType.gallery),
+      CardsUICrad(CardsUICardType.getCards),
     ];
 
     return Container(
       alignment: Alignment.center,
-      child: OrientationBuilder(
-        builder: (context, orientation) {
-          if (orientation == Orientation.portrait) {
-            return ListView(
-              padding: const EdgeInsets.all(Sizes.p8),
-              children: items,
-            );
-          } else {
-            return GridView.count(
-              crossAxisCount: 2,
-              childAspectRatio: 3,
-              children: items
-            );
-          }
-        },
+      child: Scrollbar(
+        child: OrientationBuilder(
+          builder: (context, orientation) {
+            if (orientation == Orientation.portrait) {
+              return ListView(
+                padding: const EdgeInsets.all(Sizes.p8),
+                children: items,
+              );
+            } else {
+              return GridView.count(
+                padding: const EdgeInsets.all(Sizes.p8),
+                crossAxisCount: 2,
+                childAspectRatio: 3,
+                children: items
+              );
+            }
+          },
+        ),
       ),
     );
   }
