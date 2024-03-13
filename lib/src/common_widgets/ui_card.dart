@@ -32,7 +32,7 @@ class UICard extends StatelessWidget {
     return SizedBox(
       height: height,
       child: Card(
-        clipBehavior: Clip.antiAlias,
+        clipBehavior: Clip.none,
         color: bgColor,
         elevation: needsDecor ? 2 : 1,
         child: InkWell(
@@ -46,9 +46,9 @@ class UICard extends StatelessWidget {
                   bottom: 0,
                   child: needsDecor ? 
                     Transform.rotate(
-                      angle: 1.5*(pi / 12), 
+                      angle: 1.5*(pi / 20), 
                       child: Container(
-                        decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3))),
+                        decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3)), boxShadow: [BoxShadow(blurRadius: 2, color: Colors.black12)]),
                         clipBehavior: Clip.antiAlias,
                         child: CustomImage(
                           imageUrl: bgImage,
