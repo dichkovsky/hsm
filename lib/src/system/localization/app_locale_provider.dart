@@ -17,7 +17,7 @@ enum SupportedLanguages {
   final String isoCode;
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class AppLocaleStr extends _$AppLocaleStr {
 
   static const localeKey = 'locale';

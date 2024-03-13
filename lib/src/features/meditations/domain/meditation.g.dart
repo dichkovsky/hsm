@@ -19,7 +19,7 @@ class MeditationAdapter extends TypeAdapter<Meditation> {
     return Meditation(
       id: fields[1] as String,
       audioURL: fields[2] as String,
-      videoURL: fields[3] as String,
+      coverURL: fields[3] as String,
       title: fields[4] as String,
       subTitle: fields[5] as String,
       description: fields[6] as String,
@@ -35,7 +35,7 @@ class MeditationAdapter extends TypeAdapter<Meditation> {
       ..writeByte(2)
       ..write(obj.audioURL)
       ..writeByte(3)
-      ..write(obj.videoURL)
+      ..write(obj.coverURL)
       ..writeByte(4)
       ..write(obj.title)
       ..writeByte(5)

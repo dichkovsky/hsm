@@ -12,7 +12,7 @@ class Meditation extends Equatable {
   @HiveField(2)
   final String audioURL;
   @HiveField(3)
-  final String videoURL;
+  final String coverURL;
   @HiveField(4)
   final String title;
   @HiveField(5)
@@ -23,14 +23,14 @@ class Meditation extends Equatable {
   const Meditation({
     required this.id, 
     required this.audioURL, 
-    required this.videoURL, 
+    required this.coverURL, 
     required this.title, 
     required this.subTitle, 
     required this.description
   });
   
   @override
-  List<Object?> get props => [id, audioURL, videoURL, title];
+  List<Object?> get props => [id, audioURL, coverURL, title];
 
   @override
   bool? get stringify => true;
@@ -39,7 +39,7 @@ class Meditation extends Equatable {
     return Meditation(
       id: map['id'] as String,
       audioURL: map['audioURL'] as String,
-      videoURL: map['videoURL'] as String,
+      coverURL: map['coverURL'] as String,
       title: map['title'] ?? '',
       subTitle: map['subTitle'] ?? '',
       description: map['description'] ?? '',
@@ -49,7 +49,7 @@ class Meditation extends Equatable {
   Map<String, dynamic> toMap() => {
         'id': id,
         'audioURL': audioURL,
-        'videoURL': videoURL,
+        'coverURL': coverURL,
         'title': title,
         'subTitle': subTitle,
         'description': description,
@@ -58,7 +58,7 @@ class Meditation extends Equatable {
   Meditation copyWith({
     MeditationID? id,
     String? audioURL,
-    String? videoURL,
+    String? coverURL,
     String? title,
     String? subTitle,
     String? description,
@@ -66,7 +66,7 @@ class Meditation extends Equatable {
     return Meditation(
       id: id ?? this.id,
       audioURL: audioURL ?? this.audioURL,
-      videoURL: videoURL ?? this.videoURL,
+      coverURL: coverURL ?? this.coverURL,
       title: title ?? this.title,
       subTitle: subTitle ?? this.subTitle,
       description: description ?? this.description,

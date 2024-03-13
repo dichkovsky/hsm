@@ -10,6 +10,7 @@ import 'package:hsm/src/features/cards/presentation/cards_swiper/cards_swiper_sc
 import 'package:hsm/src/features/cards/presentation/random_card/random_card_screen.dart';
 import 'package:hsm/src/features/home/presentation/home_screen.dart';
 import 'package:hsm/src/features/manifestations/presentation/manifestations_screen.dart';
+import 'package:hsm/src/features/meditations/presentation/meditation_screen.dart';
 import 'package:hsm/src/features/meditations/presentation/meditations_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -25,6 +26,7 @@ enum AppRoutes {
   cardsSwiper,
   cardsSwiperCardDetails,
   meditations,
+  meditation,
   manifestations,
   account,
   notifications,
@@ -129,6 +131,17 @@ GoRouter appRouter(AppRouterRef ref) {
                 ),
               );
             },
+            routes: [
+              GoRoute(
+                path: 'meditation/:id',
+                name: AppRoutes.meditation.name,
+                parentNavigatorKey: _rootNavigatorKey,
+                builder: (context, state) {
+                  final meditationId = state.pathParameters['id']!;
+                  return MeditationScreen(meditationId: meditationId);
+                },
+              ),
+            ],
           ),
           GoRoute(
             path: '/manifestations',

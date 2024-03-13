@@ -6,6 +6,7 @@ import 'package:hsm/src/common_widgets/ui_card.dart';
 import 'package:flutter/material.dart';
 import 'package:hsm/src/features/meditations/application/meditations_service.dart';
 import 'package:hsm/src/system/localization/app_locale_provider.dart';
+import 'package:hsm/src/system/routing/app_router.dart';
 
 class MeditationsScreen extends ConsumerWidget {
   const MeditationsScreen({
@@ -29,19 +30,27 @@ class MeditationsScreen extends ConsumerWidget {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return Scrollbar(
-      trackVisibility: true,
-      thumbVisibility: true,
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: Sizes.p12),
-        children: [
-          for (var item in meditations) UICard(
-            height: Sizes.p104, 
-            title: item.title,
-            subTitle: item.subTitle,
-            onTap: () => context.pushNamed('name'),
-          )
-        ]
+    return Container(
+      alignment: Alignment.center,
+      child: Scrollbar(
+        trackVisibility: true,
+        thumbVisibility: true,
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
+          children: [
+            for (var meditation in meditations) UICard(
+              height: Sizes.p104, 
+              title: meditation.title,
+              subTitle: meditation.subTitle,
+              bgImage: meditation.coverURL,
+              needsDecor: true,
+              onTap: () => context.pushNamed(
+                AppRoutes.meditation.name,
+                pathParameters: {'id': meditation.id},
+              ),
+            )
+          ]
+        ),
       ),
     );
   }
