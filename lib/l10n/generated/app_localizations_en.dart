@@ -19,6 +19,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get manifestations => 'Manifestations';
 
   @override
+  String get getCards => 'Get your deck';
+
+  @override
+  String get getCardsSubTitle => 'Don\'t have your cards deck yet? Get it here!';
+
+  @override
   String get cardOfTheDay => 'Card of the day';
 
   @override
@@ -122,4 +128,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get commonRegister => 'Register';
+
+  @override
+  String get seekForward => '5 sec';
+
+  @override
+  String get seekBack => '-5 sec';
 }

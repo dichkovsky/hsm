@@ -7,6 +7,10 @@
     "meditations": "Meditations",
     "manifestations": "Manifestations",
 
+    "@_CARDS_HOME_SCREEN": {},
+    "getCards": "Get your deck",
+    "getCardsSubTitle": "Don't have your cards deck yet? Get it here!",
+
     "@_CARD_OF_THE_DAY_SCREEN": {},
     "cardOfTheDay": "Card of the day",
     "cardOfTheDayDesc": "Get unique card reading daily",
@@ -55,6 +59,10 @@
     "@_COMMON_STRINGS": {},
     "commonBack": "Back",
     "commonRegister": "Register",
+
+    "@_MEDITATION_SCREEN": {},
+    "seekForward": "5 sec",
+    "seekBack": "-5 sec",
 
     "@_END": {}
 }

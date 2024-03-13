@@ -121,6 +121,18 @@ abstract class AppLocalizations {
   /// **'Manifestations'**
   String get manifestations;
 
+  /// No description provided for @getCards.
+  ///
+  /// In en, this message translates to:
+  /// **'Get your deck'**
+  String get getCards;
+
+  /// No description provided for @getCardsSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have your cards deck yet? Get it here!'**
+  String get getCardsSubTitle;
+
   /// No description provided for @cardOfTheDay.
   ///
   /// In en, this message translates to:
@@ -288,6 +300,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Register'**
   String get commonRegister;
+
+  /// No description provided for @seekForward.
+  ///
+  /// In en, this message translates to:
+  /// **'5 sec'**
+  String get seekForward;
+
+  /// No description provided for @seekBack.
+  ///
+  /// In en, this message translates to:
+  /// **'-5 sec'**
+  String get seekBack;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

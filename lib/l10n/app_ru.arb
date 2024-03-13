@@ -4,6 +4,8 @@
   "cards": "Карты",
   "meditations": "Медитации",
   "manifestations": "Манифестации",
+  "getCards": "Купить карты",
+  "getCardsSubTitle": "У вас еще нет своей колоды? Вам сюда!",
   "cardOfTheDay": "Карта дня",
   "cardOfTheDayDesc": "Вытяните счастливую карту раз в день",
   "timeTillNextCard": "Следующая карта через {hr} часов {min} минут",
@@ -31,5 +33,7 @@
   "randonLimitTitle": "Сегодня попытки закончились",
   "randomLimitMsg": "У вас закончились попытки вытянуть случайные карты на сегодня. Подождите до завтра, чтобы получить еще 3 попытки.",
   "commonBack": "Вернуться",
-  "commonRegister": "Зарегистрироваться"
+  "commonRegister": "Зарегистрироваться",
+  "seekForward": "5 сек",
+  "seekBack": "-5 сек"
 }

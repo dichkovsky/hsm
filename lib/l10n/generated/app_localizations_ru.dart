@@ -19,6 +19,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get manifestations => 'Манифестации';
 
   @override
+  String get getCards => 'Купить карты';
+
+  @override
+  String get getCardsSubTitle => 'У вас еще нет своей колоды? Вам сюда!';
+
+  @override
   String get cardOfTheDay => 'Карта дня';
 
   @override
@@ -123,4 +129,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get commonRegister => 'Зарегистрироваться';
+
+  @override
+  String get seekForward => '5 сек';
+
+  @override
+  String get seekBack => '-5 сек';
 }
