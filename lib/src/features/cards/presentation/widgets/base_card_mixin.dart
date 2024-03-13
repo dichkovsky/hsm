@@ -120,12 +120,12 @@ mixin BaseCardViewMixin {
       child: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(Sizes.p8)),
+          borderRadius: const BorderRadius.all(Radius.circular(Sizes.p8)),
           color: Theme.of(context).colorScheme.tertiaryContainer,
         ),
         height: 1.3*Sizes.p104,
         child: Padding(
-          padding: EdgeInsets.all(Sizes.p8),
+          padding: const EdgeInsets.all(Sizes.p8),
           child: Text(context.loc.limitedAvalibilityNotice)
         ),
       ),
