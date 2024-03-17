@@ -47,7 +47,7 @@ class RandomCardService {
 
   Future<int> getDrawsLeft() async {
     final drawsLeftNotivier = ref.read(randomCardsDrawsLeftProvider.notifier);
-    final isPrem = ref.read(isPremiunProvider);
+    final isPrem = ref.read(isPremiumProvider);
     var drawsLeft = -1;
     if (!isPrem) {
       final pref = ref.read(preferencesRepositoryProvider);
@@ -69,7 +69,7 @@ class RandomCardService {
   Future<HSMCard?> fetchNextRandomCard() async {
     
     final drawsLeft = await getDrawsLeft();
-    final isPrem = ref.read(isPremiunProvider);
+    final isPrem = ref.read(isPremiumProvider);
     
     if (isPrem || drawsLeft > 0) {
       final cardsRemoteRepo = ref.read(cardsRepositoryFirebaseProvider);

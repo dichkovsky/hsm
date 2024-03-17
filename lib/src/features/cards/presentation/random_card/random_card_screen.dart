@@ -1,3 +1,4 @@
+import 'package:hsm/src/features/authentification/application/account_service.dart';
 import 'package:hsm/src/features/authentification/presentation/featur_blocked_screen/featur_blocked_screen.dart';
 import 'package:hsm/src/features/cards/application/random_card_service.dart';
 import 'package:hsm/src/features/cards/domain/hsm_card.dart';
@@ -15,7 +16,10 @@ class RandomCardScreen extends ConsumerWidget with BaseCardViewMixin {
     final cardFuture = ref.watch(fetchNextRandomCardFutureProvider);
 
     return cardFuture.when(
-      data: (HSMCard? card) => getCardScreen(context.loc.randomCard, card!, true, context, ref), 
+      data: (HSMCard? card) {
+        final isPrem = ref.watch(isPremiumProvider);
+        return getCardScreen(context.loc.randomCard, card!, isPrem, context, ref);
+      }, 
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, st) => FeatureBlockedScreen(context.loc.randonLimitTitle, context.loc.randomLimitMsg)
     );

@@ -3,7 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'account_service.g.dart';
 
 @riverpod
-class IsPremiun extends _$IsPremiun {
+class IsPremium extends _$IsPremium {
   
   //TODO: get this from real account
   @override

@@ -80,7 +80,7 @@ class CardsUICrad extends ConsumerWidget {
         );
 
       case CardsUICardType.gallery:
-        final isPrem = ref.watch(isPremiunProvider);
+        final isPrem = ref.watch(isPremiumProvider);
         return UICard(
           height: Sizes.p104,
           title: context.loc.cardsGallery,
