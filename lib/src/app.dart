@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hsm/l10n/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,17 +16,21 @@ class MyApp extends ConsumerWidget {
     final appTheme = ref.watch(appThemeProvider);
     final appLocale = ref.watch(appLocaleProvider);
 
+    bool isDarkMode = (appTheme == ThemeMode.system) ? MediaQuery.of(context).platformBrightness == Brightness.dark : appTheme == ThemeMode.dark;
+
+    TextTheme appTextTheme = getTextTheme(isDarkMode, context);
+
     return MaterialApp.router(
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
       restorationScopeId: 'app',
       onGenerateTitle: (BuildContext context) => context.loc.appTitle,
-      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
+      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme, textTheme: appTextTheme),
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme, textTheme: appTextTheme),
       themeMode: appTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: ref.read(appLocaleProvider.notifier).getSupportedLocales(),
-      locale: appLocale,
+      locale: appLocale,  
     );
   }
 }

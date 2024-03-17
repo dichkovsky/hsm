@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hsm/src/system/exceptions/app_exception.dart';
 import 'package:hsm/src/system/preferences/preferences_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -27,7 +28,6 @@ class AppTheme extends _$AppTheme {
     }
   }
 }
-
 
 const lightColorScheme = ColorScheme(
   brightness: Brightness.light,
@@ -96,6 +96,30 @@ const darkColorScheme = ColorScheme(
   outlineVariant: Color(0xFF3F4944),
   scrim: Color(0xFF000000),
 );
+
+TextTheme getTextTheme(bool isDarkMode, BuildContext context) {
+  final appTextTheme = TextTheme(
+    titleLarge: GoogleFonts.poiretOne(
+      textStyle: TextStyle(
+        color: isDarkMode ? darkColorScheme.onPrimaryContainer : lightColorScheme.onPrimaryContainer,
+        fontWeight: FontWeight.w900,
+      ),
+    ),
+    titleMedium: GoogleFonts.poiretOne(
+      textStyle: TextStyle(
+        color: Theme.of(context).textTheme.titleMedium?.color,
+        fontWeight: FontWeight.w900,
+      ),
+    ),
+    titleSmall: GoogleFonts.poiretOne(
+      textStyle: TextStyle(
+        color: Theme.of(context).textTheme.titleSmall?.color,
+        fontWeight: FontWeight.w900,
+      ),
+    ),
+  );
+  return appTextTheme;
+}
 
 /* 
 const appLightColorScheme = ColorScheme(
