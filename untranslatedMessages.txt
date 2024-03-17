@@ -3,6 +3,8 @@
     "cards",
     "meditations",
     "manifestations",
+    "getCards",
+    "getCardsSubTitle",
     "cardOfTheDay",
     "cardOfTheDayDesc",
     "timeTillNextCard",
@@ -24,13 +26,19 @@
     "randonLimitTitle",
     "randomLimitMsg",
     "commonBack",
-    "commonRegister"
+    "commonRegister",
+    "play",
+    "pause",
+    "seekForward",
+    "seekBack"
   ],
 
   "es": [
     "cards",
     "meditations",
     "manifestations",
+    "getCards",
+    "getCardsSubTitle",
     "cardOfTheDay",
     "cardOfTheDayDesc",
     "timeTillNextCard",
@@ -52,6 +60,10 @@
     "randonLimitTitle",
     "randomLimitMsg",
     "commonBack",
-    "commonRegister"
+    "commonRegister",
+    "play",
+    "pause",
+    "seekForward",
+    "seekBack"
   ]
 }
