@@ -45,10 +45,5 @@ class CardsRepositoryFake implements CardsRepositoryFirebase, CardsRepositoryApp
   @override
   // TODO: implement ref
   Ref<Object?> get ref => throw UnimplementedError();
-  
-  // addCards() {
-  //   // TODO: implement addCards
-  //   throw UnimplementedError();
-  // }
 
 }
