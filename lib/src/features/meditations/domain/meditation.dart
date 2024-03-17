@@ -19,6 +19,8 @@ class Meditation extends Equatable {
   final String subTitle;
   @HiveField(6)
   final String description;
+  @HiveField(7)
+  final int duration;
 
   const Meditation({
     required this.id, 
@@ -26,7 +28,8 @@ class Meditation extends Equatable {
     required this.coverURL, 
     required this.title, 
     required this.subTitle, 
-    required this.description
+    required this.description,
+    required this.duration
   });
   
   @override
@@ -43,6 +46,7 @@ class Meditation extends Equatable {
       title: map['title'] ?? '',
       subTitle: map['subTitle'] ?? '',
       description: map['description'] ?? '',
+      duration: map['duration'] ?? 0,
     );
   }
 
@@ -53,6 +57,7 @@ class Meditation extends Equatable {
         'title': title,
         'subTitle': subTitle,
         'description': description,
+        'duration': duration,
       };
 
   Meditation copyWith({
@@ -62,6 +67,7 @@ class Meditation extends Equatable {
     String? title,
     String? subTitle,
     String? description,
+    int? duration,
   }) {
     return Meditation(
       id: id ?? this.id,
@@ -70,6 +76,7 @@ class Meditation extends Equatable {
       title: title ?? this.title,
       subTitle: subTitle ?? this.subTitle,
       description: description ?? this.description,
+      duration: duration ?? this.duration,
     );
   }
 }

@@ -41,3 +41,7 @@ class LocalStorrageSaveException extends AppException {
       : super('local-storrage',
             'Value save error'.hardcoded);
 }
+
+class MeditationPlayerException extends AppException {
+  MeditationPlayerException(message) : super('meditation-player', message);
+}

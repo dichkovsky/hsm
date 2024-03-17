@@ -130,6 +130,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get commonRegister => 'Register';
 
   @override
+  String get play => 'Play';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
   String get seekForward => '5 sec';
 
   @override

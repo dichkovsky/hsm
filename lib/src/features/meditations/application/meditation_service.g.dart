@@ -6,7 +6,7 @@ part of 'meditation_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$meditationServiceHash() => r'c5bc078d355d8b5fd013a5483f3dfe6548e55fb0';
+String _$meditationServiceHash() => r'46737fd6c808d6c68b166474e72cc77bd8331a59';
 
 /// See also [meditationService].
 @ProviderFor(meditationService)

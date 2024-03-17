@@ -1,3 +1,4 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -6,6 +7,7 @@ import 'package:hsm/src/app_bootstrap.dart';
 import 'package:hsm/src/app_bootstrap_appwrite.dart';
 import 'package:hsm/src/app_bootstrap_fakes.dart';
 import 'package:hsm/src/app_bootstrap_firebase.dart';
+import 'package:hsm/src/features/meditations/application/meditation_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +26,18 @@ void main() async {
   
   // use the container above to create the root widget
   final root = appBootstrap.createRootWidget(container: container);
+
+  await AudioService.init(
+    builder: () => container.read(meditationServiceProvider),
+    config: const AudioServiceConfig(
+      androidNotificationChannelId: 'media.andcut.hsm.channel.audio',
+      androidNotificationChannelName: 'Meditation playback',
+      androidNotificationOngoing: true,
+      androidStopForegroundOnPause: true,
+      androidShowNotificationBadge: true,
+      androidNotificationIcon: 'drawable/ic_stat_frame_16'
+    ),
+  );
 
   // start the app
   runApp(root);

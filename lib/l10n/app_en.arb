@@ -61,6 +61,8 @@
     "commonRegister": "Register",
 
     "@_MEDITATION_SCREEN": {},
+    "play": "Play",
+    "pause": "Pause",
     "seekForward": "5 sec",
     "seekBack": "-5 sec",
 

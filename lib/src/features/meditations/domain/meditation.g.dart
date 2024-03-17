@@ -23,13 +23,14 @@ class MeditationAdapter extends TypeAdapter<Meditation> {
       title: fields[4] as String,
       subTitle: fields[5] as String,
       description: fields[6] as String,
+      duration: fields[7] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, Meditation obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
@@ -41,7 +42,9 @@ class MeditationAdapter extends TypeAdapter<Meditation> {
       ..writeByte(5)
       ..write(obj.subTitle)
       ..writeByte(6)
-      ..write(obj.description);
+      ..write(obj.description)
+      ..writeByte(7)
+      ..write(obj.duration);
   }
 
   @override

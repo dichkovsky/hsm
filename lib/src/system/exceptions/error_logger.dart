@@ -13,6 +13,10 @@ class ErrorLogger {
     // * This can be replaced with a call to a crash reporting tool of choice
     debugPrint('$exception');
   }
+
+  void log(String message) {
+    debugPrint('Log $message');
+  }
 }
 
 final errorLoggerProvider = Provider<ErrorLogger>((ref) {

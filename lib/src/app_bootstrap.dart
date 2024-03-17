@@ -14,8 +14,7 @@ import 'package:hsm/src/system/localization/string_hardcoded.dart';
 abstract class AppBootstrap {
   /// Create the root widget that should be passed to [runApp].
   UncontrolledProviderScope createRootWidget({required ProviderContainer container}) {
-    // * Initialize CartSyncService to start the listener
-    //container.read(cartSyncServiceProvider);
+    // * Initialize MeditationService
     
     // * Initialize UserTokenRefreshService
     //container.read(userTokenRefreshServiceProvider);

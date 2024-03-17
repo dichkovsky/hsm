@@ -131,6 +131,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get commonRegister => 'Зарегистрироваться';
 
   @override
+  String get play => 'Play';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
   String get seekForward => '5 сек';
 
   @override
