@@ -18,7 +18,7 @@ class RandomCardScreen extends ConsumerWidget with BaseCardViewMixin {
     return cardFuture.when(
       data: (HSMCard? card) {
         final isPrem = ref.watch(isPremiumProvider);
-        return getCardScreen(context.loc.randomCard, card!, isPrem, context, ref);
+        return getCardScreen(context.loc.randomCard, card!, !isPrem, context, ref);
       }, 
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, st) => FeatureBlockedScreen(context.loc.randonLimitTitle, context.loc.randomLimitMsg)

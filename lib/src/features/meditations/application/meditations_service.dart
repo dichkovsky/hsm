@@ -17,18 +17,18 @@ Future<List<Meditation>> meditationsListFuture(MeditationsListFutureRef ref, Str
 }
 
 @riverpod
-Future<Meditation?> meditationFuture(MeditationFutureRef ref, MeditationID id) {
+Future<Meditation?> meditationFuture(MeditationFutureRef ref, String lang, MeditationID id) {
   final meditationsService = ref.watch(meditationsServiceProvider);
-  return meditationsService.fetchMeditation(id);
+  return meditationsService.fetchMeditation(lang, id);
 }
 
 class MeditationsService {
   MeditationsService(this.ref);
   final Ref ref;
 
-  Future<Meditation?> fetchMeditation(MeditationID id) {
+  Future<Meditation?> fetchMeditation(String lang, MeditationID id) {
     final meditationsRemoteRepo = ref.read(meditationsRepositoryFirebaseProvider);
-    return meditationsRemoteRepo.fetchMeditation(id);
+    return meditationsRemoteRepo.fetchMeditation(lang, id);
   }
 
   Future<List<Meditation>> fetchMeditationsList(String lang) async {

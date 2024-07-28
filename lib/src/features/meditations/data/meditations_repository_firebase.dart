@@ -37,28 +37,28 @@ class MeditationsRepositoryFirebase implements MeditationsRepositoryBase {
   }
   
   @override
-  Future<Meditation?> fetchMeditation(MeditationID id) async {
-    final meditationsLocalRepo = ref.read(meditationsRepositoryLocalProvider);
-    if (await meditationsLocalRepo.hasLocalMeditations()) {
-      return meditationsLocalRepo.fetchMeditation(id);
-    } else {
+  Future<Meditation?> fetchMeditation(String lang, MeditationID id) async {
+//    final meditationsLocalRepo = ref.read(meditationsRepositoryLocalProvider);
+//    if (await meditationsLocalRepo.hasLocalMeditations(lang)) {
+//      return meditationsLocalRepo.fetchMeditation(lang, id);
+//    } else {
       final docRef = _meditationDocRef(id);
       final snapshot = await docRef.get();
       return snapshot.data();
-    }
+//    }
   }
   
   @override
   Future<List<Meditation>> fetchMeditationsList(String lang) async {
-    final meditationsLocalRepo = ref.read(meditationsRepositoryLocalProvider);
-    if (await meditationsLocalRepo.hasLocalMeditations()) {
-      return meditationsLocalRepo.fetchMeditationsList(lang);
-    } else {
+//    final meditationsLocalRepo = ref.read(meditationsRepositoryLocalProvider);
+//    if (await meditationsLocalRepo.hasLocalMeditations(lang)) {
+//      return meditationsLocalRepo.fetchMeditationsList(lang);
+//    } else {
       final query = _meditationsQuery(lang);
       final snapshot = await query.get();
       final meditations = snapshot.docs.map((docSnapshot) => docSnapshot.data()).toList();
-      if (meditations.isNotEmpty) meditationsLocalRepo.writeLocalMeditations(meditations);
+//      if (meditations.isNotEmpty) meditationsLocalRepo.writeLocalMeditations(lang, meditations);
       return meditations;
-    }
+//    }
   }
 }

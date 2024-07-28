@@ -20,7 +20,7 @@ class CardViewScreen extends ConsumerWidget with BaseCardViewMixin {
     return cardFuture.when(
       data: (HSMCard? card) {
         final isPrem = ref.watch(isPremiumProvider);
-        return getCardScreen(card!.title, card, isPrem, context, ref, animate: false);
+        return getCardScreen(card!.title, card, !isPrem, context, ref, animate: false);
       },
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, st) => Center(child: ErrorMessageWidget(e.toString()))

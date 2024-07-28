@@ -16,24 +16,24 @@ class MeditationsRepositoryLocal implements MeditationsRepositoryBase {
 
   MeditationsRepositoryLocal(this.ref) {
     ref.listen(appLocaleStrProvider, (previous, next) {
-      if (previous != null && previous != next) clearStorrage();
+      if (previous != null && previous != next) clearStorrage(previous);
     });
   }
 
-  Future<void> clearStorrage() {
-    return Hive.deleteBoxFromDisk(meditationsBoxKey);
+  Future<void> clearStorrage(String lang) {
+    return Hive.deleteBoxFromDisk(meditationsBoxKey + lang);
   }
 
   @override
-  Future<Meditation?> fetchMeditation(MeditationID id) async {
-    final meditationsBox = await Hive.openBox(meditationsBoxKey);
+  Future<Meditation?> fetchMeditation(String lang, MeditationID id) async {
+    final meditationsBox = await Hive.openBox(meditationsBoxKey + lang);
     Meditation meditation = meditationsBox.get(id);
     return Future.value(meditation);
   }
 
   @override
   Future<List<Meditation>> fetchMeditationsList(String lang) async {
-    final meditationsBox = await Hive.openBox(meditationsBoxKey);
+    final meditationsBox = await Hive.openBox(meditationsBoxKey + lang);
     List<Meditation> l = List.empty(growable: true);
     for (var meditation in meditationsBox.values) {
       if (meditation is Meditation) {
@@ -44,12 +44,12 @@ class MeditationsRepositoryLocal implements MeditationsRepositoryBase {
     return Future.value(l);
   }
 
-  Future<bool> hasLocalMeditations() {
-    return Hive.boxExists(meditationsBoxKey);
+  Future<bool> hasLocalMeditations(String lang) {
+    return Hive.boxExists(meditationsBoxKey + lang);
   }
 
-  writeLocalMeditations(List<Meditation> meditations) async {
-    final meditationsBox = await Hive.openBox(meditationsBoxKey);
+  writeLocalMeditations(lang, List<Meditation> meditations) async {
+    final meditationsBox = await Hive.openBox(meditationsBoxKey + lang);
     for (var meditation in meditations) {
       await meditationsBox.put(meditation.id, meditation);
     }

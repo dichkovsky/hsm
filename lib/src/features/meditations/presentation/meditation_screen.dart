@@ -6,6 +6,7 @@ import 'package:hsm/src/features/meditations/application/meditation_service.dart
 import 'package:hsm/src/features/meditations/application/meditations_service.dart';
 import 'package:hsm/src/features/meditations/domain/meditation.dart';
 import 'package:hsm/src/features/meditations/presentation/meditation_player_widget.dart';
+import 'package:hsm/src/system/localization/app_locale_provider.dart';
 import 'package:hsm/src/system/localization/app_localizations_context.dart';
 
 class MeditationScreen extends ConsumerWidget {
@@ -16,7 +17,8 @@ class MeditationScreen extends ConsumerWidget {
   
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final meditationFuture = ref.watch(meditationFutureProvider(meditationId));
+    final lang = ref.read(appLocaleProvider).languageCode;
+    final meditationFuture = ref.watch(meditationFutureProvider(lang, meditationId));
 
     return meditationFuture.when(
       skipLoadingOnReload: true,

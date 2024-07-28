@@ -177,7 +177,7 @@ class _MeditationsListFutureProviderElement
   String get lang => (origin as MeditationsListFutureProvider).lang;
 }
 
-String _$meditationFutureHash() => r'be77a6ac7ce2da80430c5191e90c521f5a76c55f';
+String _$meditationFutureHash() => r'4bc1b453065086c5c5f07274ffdf2ef7a11c1cb4';
 
 /// See also [meditationFuture].
 @ProviderFor(meditationFuture)
@@ -190,9 +190,11 @@ class MeditationFutureFamily extends Family<AsyncValue<Meditation?>> {
 
   /// See also [meditationFuture].
   MeditationFutureProvider call(
+    String lang,
     String id,
   ) {
     return MeditationFutureProvider(
+      lang,
       id,
     );
   }
@@ -202,6 +204,7 @@ class MeditationFutureFamily extends Family<AsyncValue<Meditation?>> {
     covariant MeditationFutureProvider provider,
   ) {
     return call(
+      provider.lang,
       provider.id,
     );
   }
@@ -225,10 +228,12 @@ class MeditationFutureFamily extends Family<AsyncValue<Meditation?>> {
 class MeditationFutureProvider extends AutoDisposeFutureProvider<Meditation?> {
   /// See also [meditationFuture].
   MeditationFutureProvider(
+    String lang,
     String id,
   ) : this._internal(
           (ref) => meditationFuture(
             ref as MeditationFutureRef,
+            lang,
             id,
           ),
           from: meditationFutureProvider,
@@ -240,6 +245,7 @@ class MeditationFutureProvider extends AutoDisposeFutureProvider<Meditation?> {
           dependencies: MeditationFutureFamily._dependencies,
           allTransitiveDependencies:
               MeditationFutureFamily._allTransitiveDependencies,
+          lang: lang,
           id: id,
         );
 
@@ -250,9 +256,11 @@ class MeditationFutureProvider extends AutoDisposeFutureProvider<Meditation?> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
+    required this.lang,
     required this.id,
   }) : super.internal();
 
+  final String lang;
   final String id;
 
   @override
@@ -268,6 +276,7 @@ class MeditationFutureProvider extends AutoDisposeFutureProvider<Meditation?> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
+        lang: lang,
         id: id,
       ),
     );
@@ -280,12 +289,15 @@ class MeditationFutureProvider extends AutoDisposeFutureProvider<Meditation?> {
 
   @override
   bool operator ==(Object other) {
-    return other is MeditationFutureProvider && other.id == id;
+    return other is MeditationFutureProvider &&
+        other.lang == lang &&
+        other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, lang.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -293,6 +305,9 @@ class MeditationFutureProvider extends AutoDisposeFutureProvider<Meditation?> {
 }
 
 mixin MeditationFutureRef on AutoDisposeFutureProviderRef<Meditation?> {
+  /// The parameter `lang` of this provider.
+  String get lang;
+
   /// The parameter `id` of this provider.
   String get id;
 }
@@ -302,6 +317,8 @@ class _MeditationFutureProviderElement
     with MeditationFutureRef {
   _MeditationFutureProviderElement(super.provider);
 
+  @override
+  String get lang => (origin as MeditationFutureProvider).lang;
   @override
   String get id => (origin as MeditationFutureProvider).id;
 }

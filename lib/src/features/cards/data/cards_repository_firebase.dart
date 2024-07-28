@@ -37,40 +37,40 @@ class CardsRepositoryFirebase implements CardsRepositoryBase {
   
   @override
   Future<List<HSMCard>> fetchCardsList() async {
-    final cardsLocalRepo = ref.read(cardsRepositoryLocalProvider);
-    if (await cardsLocalRepo.hasLocalCards()) {
-      return cardsLocalRepo.fetchCardsList();
-    } else {
+//    final cardsLocalRepo = ref.read(cardsRepositoryLocalProvider);
+//    if (await cardsLocalRepo.hasLocalCards()) {
+//      return cardsLocalRepo.fetchCardsList();
+//    } else {
       final query = _cardsQuery();
       final snapshot = await query.get();
       final cards = snapshot.docs.map((docSnapshot) => docSnapshot.data()).toList();
-      if (cards.isNotEmpty) cardsLocalRepo.writeLocalCards(cards);
+//      if (cards.isNotEmpty) cardsLocalRepo.writeLocalCards(cards);
       return cards;
-    }
+//    }
   }
 
   @override
   Future<HSMCard?> fetchCard(HSMCardID id) async {
-    final cardsLocalRepo = ref.read(cardsRepositoryLocalProvider);
-    if (await cardsLocalRepo.hasLocalCards()) {
-      return cardsLocalRepo.fetchCard(id);
-    } else {
+//    final cardsLocalRepo = ref.read(cardsRepositoryLocalProvider);
+//    if (await cardsLocalRepo.hasLocalCards()) {
+//      return cardsLocalRepo.fetchCard(id);
+//    } else {
       final docRef = _cardDocRef(id);
       final snapshot = await docRef.get();
       return snapshot.data();
-    }
+//    }
   }
 
   Future<HSMCard?> fetchRandomCard() async {
-    final cardsLocalRepo = ref.read(cardsRepositoryLocalProvider);
-    if (await cardsLocalRepo.hasLocalCards()) {
-      return cardsLocalRepo.fetchRandomCard();
-    } else {
+//    final cardsLocalRepo = ref.read(cardsRepositoryLocalProvider);
+//    if (await cardsLocalRepo.hasLocalCards()) {
+//      return cardsLocalRepo.fetchRandomCard();
+//    } else {
       final rand = Random().nextInt(55) + 1;
       final docRef = _cardDocRef('card$rand');
       final snapshot = await docRef.get();
       return snapshot.data();
-    }
+//    }
   }
 
   /* 
